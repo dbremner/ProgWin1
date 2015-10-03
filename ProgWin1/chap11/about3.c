@@ -182,4 +182,3 @@ long CALLBACK EllipPushWndProc (hWnd, iMessage, wParam, lParam)
           }
      return 0L ;
      }
-

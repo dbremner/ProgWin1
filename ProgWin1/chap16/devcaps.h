@@ -9,4 +9,3 @@
 #define IDM_POLY    0x105
 #define IDM_TEXT    0x106
 #define IDM_ESC     0x107
-

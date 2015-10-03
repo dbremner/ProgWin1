@@ -196,4 +196,3 @@ void DoBitCodedCaps (hDC, hIC, xChar, yChar, nType)
                     (*pbits)[i].szMask, "Can do", (*pbits)[i].szDesc,
                     nDevCaps & (*pbits)[i].nMask ? "Yes" : "No")) ;
      }
-

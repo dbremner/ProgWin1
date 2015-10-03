@@ -107,4 +107,3 @@ short CALLBACK GetStrings (lpfnGetStrCallBack, lpParam)
           }
      return nTotal ;
      }
-

@@ -155,4 +155,3 @@ BOOL PrintFile (hInst, hWnd, hWndEdit, szFileName)
 
      return bError || bUserAbort ;
      }
-

@@ -17,4 +17,3 @@
 #define IDD_ANISO    17
 #define IDD_XEXT     18
 #define IDD_YEXT     19
-

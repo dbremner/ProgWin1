@@ -99,4 +99,3 @@ BOOL PrintMyPage (hWnd)
 
      return bError || bUserAbort ;
      }
-

@@ -28,4 +28,3 @@ BOOL PrintFile (hInstance, hWnd, hWndEdit, szFileName)
                          MB_OK | MB_ICONEXCLAMATION) ;
      return FALSE ;
      }
-

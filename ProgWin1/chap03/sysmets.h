@@ -48,4 +48,3 @@ struct
      SM_CYMINTRACK,    "SM_CYMINTRACK",    "Maximum tracking width of window",
      SM_CMETRICS,      "SM_CMETRICS",      "Number of system metrics"
      } ;
-

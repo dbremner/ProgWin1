@@ -60,4 +60,3 @@ BOOL PrintMyPage (hWnd)
      DeleteDC (hPrnDC) ;
      return bError ;
      }
-

@@ -15,4 +15,3 @@ int   CALLBACK lstrlen (LPSTR) ;
 LPSTR CALLBACK lstrcpy (LPSTR, LPSTR) ;
 LPSTR CALLBACK lstrcat (LPSTR, LPSTR) ;
 int   CALLBACK lstrcmp (LPSTR, LPSTR) ;
-

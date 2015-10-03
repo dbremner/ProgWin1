@@ -132,4 +132,3 @@ BOOL WriteFile (hInstance, hWnd, hWndEdit, pof, szFileName, bAskName)
 
      return TRUE ;
      }
-

@@ -25,4 +25,3 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 
      return FALSE ;
      }
-

@@ -228,4 +228,3 @@ long CALLBACK ScrollProc (hWnd, iMessage, wParam, lParam)
           }
      return CallWindowProc (lpfnOldScr[n], hWnd, iMessage, wParam, lParam) ;
      }
-

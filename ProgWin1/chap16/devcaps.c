@@ -10,7 +10,7 @@ void DoBasicInfo (HDC, HDC, short, short) ;            /* in DEVCAPS2.C */
 void DoOtherInfo (HDC, HDC, short, short) ;
 void DoBitCodedCaps (HDC, HDC, short, short, short) ;
 
-long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
@@ -107,7 +107,7 @@ void DoEscSupport (hDC, hIC, xChar, yChar)
           }
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND          hWnd ;
      unsigned      iMessage ;
      WORD          wParam ;

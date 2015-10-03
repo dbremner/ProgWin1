@@ -4,7 +4,7 @@
 
 #define IDM_ABOUT 1
 
-long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG);
+long CALLBACK WndProc (HWND, unsigned, WORD, LONG);
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance;
@@ -50,7 +50,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-BOOL FAR CALLBACK AboutDlgProc (hDlg, iMessage, wParam, lParam)
+BOOL CALLBACK AboutDlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
      unsigned iMessage ;
      WORD     wParam ;
@@ -79,7 +79,7 @@ BOOL FAR CALLBACK AboutDlgProc (hDlg, iMessage, wParam, lParam)
      return TRUE ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd;
      unsigned       iMessage;
      WORD           wParam;

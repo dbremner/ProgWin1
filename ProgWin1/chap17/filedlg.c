@@ -4,8 +4,8 @@
 #include <string.h>
 #include "filedlg.h"
 
-BOOL FAR CALLBACK FileOpenDlgProc (HWND, unsigned, WORD, LONG) ;
-BOOL FAR CALLBACK FileSaveDlgProc (HWND, unsigned, WORD, LONG) ;
+BOOL CALLBACK FileOpenDlgProc (HWND, unsigned, WORD, LONG) ;
+BOOL CALLBACK FileSaveDlgProc (HWND, unsigned, WORD, LONG) ;
 
 static char      szDefExt   [5]  ;
 static char      szFileName [96] ;
@@ -65,7 +65,7 @@ int DoFileSaveDlg (hInst, hWnd, szFileSpecIn, szDefExtIn, pwStatusOut,
      return iReturn ;
      }
 
-BOOL FAR CALLBACK FileOpenDlgProc (hDlg, iMessage, wParam, lParam)
+BOOL CALLBACK FileOpenDlgProc (hDlg, iMessage, wParam, lParam)
      HWND      hDlg ;
      unsigned  iMessage ;
      WORD      wParam ;
@@ -183,7 +183,7 @@ BOOL FAR CALLBACK FileOpenDlgProc (hDlg, iMessage, wParam, lParam)
      return TRUE ;
      }
 
-BOOL FAR CALLBACK FileSaveDlgProc (hDlg, iMessage, wParam, lParam)
+BOOL CALLBACK FileSaveDlgProc (hDlg, iMessage, wParam, lParam)
      HWND      hDlg ;
      unsigned  iMessage ;
      WORD      wParam ;

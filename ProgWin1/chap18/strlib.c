@@ -17,7 +17,7 @@ int CALLBACK LibMain (hInstance, wDataSeg, wHeapSize, lpCmdLine)
      return LocalInit (wDataSeg, NULL, (NPSTR) wHeapSize) ;
      }
 
-BOOL FAR CALLBACK AddString (lpStringIn)
+BOOL CALLBACK AddString (lpStringIn)
      LPSTR  lpStringIn ;
      {
      HANDLE hString ;
@@ -59,7 +59,7 @@ BOOL FAR CALLBACK AddString (lpStringIn)
      return TRUE ;
      }
 
-BOOL FAR CALLBACK DeleteString (lpStringIn)
+BOOL CALLBACK DeleteString (lpStringIn)
      LPSTR lpStringIn ;
      {
      NPSTR npString ;
@@ -88,7 +88,7 @@ BOOL FAR CALLBACK DeleteString (lpStringIn)
      return TRUE ;
      }     
 
-short FAR CALLBACK GetStrings (lpfnGetStrCallBack, lpParam)
+short CALLBACK GetStrings (lpfnGetStrCallBack, lpParam)
      FARPROC lpfnGetStrCallBack ;
      LPSTR   lpParam ;
      {

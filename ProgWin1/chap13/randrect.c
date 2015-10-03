@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <stdlib.h>
 
-long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
 void DrawRectangle (HWND) ;
 
 short xClient, yClient ;
@@ -86,7 +86,7 @@ void DrawRectangle (hWnd)
      DeleteObject (hBrush) ;
      }     
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
      unsigned iMessage ;
      WORD     wParam ;

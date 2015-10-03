@@ -3,7 +3,7 @@
 #include <windows.h>
 #include "poppad.h"
 
-long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG);
+long CALLBACK WndProc (HWND, unsigned, WORD, LONG);
 
 char szAppName [] = "PopPad" ;
 
@@ -64,7 +64,7 @@ AskConfirmation (hWnd)
                             szAppName, MB_YESNO | MB_ICONQUESTION) ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd;
      unsigned    iMessage;
      WORD        wParam;

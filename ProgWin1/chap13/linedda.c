@@ -2,8 +2,8 @@
 
 #include <windows.h>
 
-long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
-void FAR CALLBACK LineProc (short, short, LPSTR) ;
+long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+void CALLBACK LineProc (short, short, LPSTR) ;
 
 HANDLE hInst ;
 
@@ -53,7 +53,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd ;
      unsigned       iMessage ;
      WORD           wParam ;
@@ -101,7 +101,7 @@ long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      return 0L ;
      }
 
-void FAR CALLBACK LineProc (x, y, lpData)
+void CALLBACK LineProc (x, y, lpData)
      short        x, y ;
      LPSTR        lpData ;
      {

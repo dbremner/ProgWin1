@@ -5,7 +5,7 @@
 
 #define  IDM_ABOUT 1
 
-long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG);
+long CALLBACK WndProc (HWND, unsigned, WORD, LONG);
 
 short nCurrentColor = IDD_BLACK, nCurrentFigure = IDD_RECT ;
 
@@ -88,7 +88,7 @@ void PaintTheBlock (hCtrl, nColor, nFigure)
      PaintWindow (hCtrl, nColor, nFigure) ;
      }
 
-BOOL FAR CALLBACK AboutDlgProc (hDlg, iMessage, wParam, lParam)
+BOOL CALLBACK AboutDlgProc (hDlg, iMessage, wParam, lParam)
      HWND         hDlg ;
      unsigned     iMessage ;
      WORD         wParam ;
@@ -162,7 +162,7 @@ BOOL FAR CALLBACK AboutDlgProc (hDlg, iMessage, wParam, lParam)
      return TRUE ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd;
      unsigned       iMessage;
      WORD           wParam;

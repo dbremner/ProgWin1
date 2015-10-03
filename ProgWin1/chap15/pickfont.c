@@ -3,8 +3,8 @@
 #include <windows.h>
 #include "pickfont.h"
 
-long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
-BOOL FAR CALLBACK DlgProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+BOOL CALLBACK DlgProc (HWND, unsigned, WORD, LONG) ;
 
 char    szAppName [] = "PickFont" ;
 DWORD   dwAspectMatch = 0L ;
@@ -136,7 +136,7 @@ void ShowMetrics (hDlg)
      SetDlgItemText (hDlg, TF_NAME, szFaceName) ;
      }
 
-BOOL FAR CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
+BOOL CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
      unsigned iMessage ;
      WORD     wParam ;
@@ -230,7 +230,7 @@ BOOL FAR CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
      return TRUE ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND         hWnd;
      unsigned     iMessage;
      WORD         wParam;

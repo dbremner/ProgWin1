@@ -4,8 +4,8 @@
 
 #define DIVISIONS 5
 
-long FAR CALLBACK WndProc      (HWND, unsigned, WORD, LONG) ;
-long FAR CALLBACK ChildWndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc      (HWND, unsigned, WORD, LONG) ;
+long CALLBACK ChildWndProc (HWND, unsigned, WORD, LONG) ;
 
 char szChildClass [] = "Checker3_Child" ;
 
@@ -61,7 +61,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
      WORD        wParam ;
@@ -108,7 +108,7 @@ long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      return 0L ;
      }
 
-long FAR CALLBACK ChildWndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK ChildWndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
      WORD        wParam ;

@@ -5,8 +5,8 @@
 
 #define WM_PRTSC WM_USER 
 
-long  FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
-DWORD FAR CALLBACK KeyboardHook (int, WORD, LONG) ;
+long  CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+DWORD CALLBACK KeyboardHook (int, WORD, LONG) ;
 int   PrintScreen () ;
 
 char    szAppName [] = "WinPrtSc" ;
@@ -69,7 +69,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-DWORD FAR CALLBACK KeyboardHook (iCode, wParam, lParam)
+DWORD CALLBACK KeyboardHook (iCode, wParam, lParam)
      int  iCode ;
      WORD wParam ;
      LONG lParam ;
@@ -87,7 +87,7 @@ DWORD FAR CALLBACK KeyboardHook (iCode, wParam, lParam)
           return DefHookProc (iCode, wParam, lParam, &lpfnOldHook) ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
      WORD        wParam ;

@@ -22,11 +22,11 @@ typedef struct
      }
      CBPARM ;
 
-BOOL  FAR CALLBACK AddString    (LPSTR) ;      /* functions in STRLIB */
-BOOL  FAR CALLBACK DeleteString (LPSTR) ;
-short FAR CALLBACK GetStrings   (FARPROC, CBPARM FAR *) ;
+BOOL  CALLBACK AddString    (LPSTR) ;      /* functions in STRLIB */
+BOOL  CALLBACK DeleteString (LPSTR) ;
+short CALLBACK GetStrings   (FARPROC, CBPARM *) ;
 
-long  FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long  CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
 
 char  szAppName [] = "StrProg" ;
 char  szString  [MAXLEN] ;
@@ -74,7 +74,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-BOOL FAR CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
+BOOL CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
      unsigned iMessage ;
      WORD     wParam ;
@@ -108,7 +108,7 @@ BOOL FAR CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
      return TRUE ;
      }
 
-BOOL FAR CALLBACK EnumCallBack (hWnd, lParam)
+BOOL CALLBACK EnumCallBack (hWnd, lParam)
      HWND hWnd ;
      LONG lParam ;
      {
@@ -121,9 +121,9 @@ BOOL FAR CALLBACK EnumCallBack (hWnd, lParam)
      return TRUE ;
      }
 
-BOOL FAR CALLBACK GetStrCallBack (lpString, lpcbp)
+BOOL CALLBACK GetStrCallBack (lpString, lpcbp)
      LPSTR       lpString ;
-     CBPARM FAR *lpcbp ;
+     CBPARM *lpcbp ;
      {
      TextOut (lpcbp->hDC, lpcbp->xText, lpcbp->yText, lpString,
                                              lstrlen (lpString)) ;
@@ -137,7 +137,7 @@ BOOL FAR CALLBACK GetStrCallBack (lpString, lpcbp)
      return TRUE ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd ;
      unsigned       iMessage ;
      WORD           wParam ;

@@ -17,9 +17,9 @@ typedef struct {
      TEXTMETRIC   tm ;
      } FONT ;
 
-long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
-int  FAR CALLBACK EnumAllFaces (LPLOGFONT, LPTEXTMETRIC, short, ENUMER FAR *) ;
-int  FAR CALLBACK EnumAllFonts (LPLOGFONT, LPTEXTMETRIC, short, ENUMER FAR *) ;
+long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+int  CALLBACK EnumAllFaces (LPLOGFONT, LPTEXTMETRIC, short, ENUMER *) ;
+int  CALLBACK EnumAllFonts (LPLOGFONT, LPTEXTMETRIC, short, ENUMER *) ;
 
 char szAppName [] = "FontList" ;
 
@@ -65,11 +65,11 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-int FAR CALLBACK EnumAllFaces (lf, tm, nFontType, enumer)
+int CALLBACK EnumAllFaces (lf, tm, nFontType, enumer)
      LPLOGFONT    lf ;
      LPTEXTMETRIC tm ;
      short        nFontType ;
-     ENUMER FAR   *enumer ;
+     ENUMER   *enumer ;
      {
      LPSTR        lpFaces ;
 
@@ -85,20 +85,20 @@ int FAR CALLBACK EnumAllFaces (lf, tm, nFontType, enumer)
      return 1 ;
      }
 
-int FAR CALLBACK EnumAllFonts (lf, tm, nFontType, enumer)
+int CALLBACK EnumAllFonts (lf, tm, nFontType, enumer)
      LPLOGFONT    lf ;
      LPTEXTMETRIC tm ;
      short        nFontType ;
-     ENUMER FAR   *enumer ;
+     ENUMER   *enumer ;
      {
-     FONT FAR     *font ;     
+     FONT     *font ;     
 
      if (NULL == GlobalReAlloc (enumer->hGMem,
                          (DWORD) sizeof (FONT) * (1 + enumer->nCount),
                          GMEM_MOVEABLE))
           return 0 ;
 
-     font = (FONT FAR *) GlobalLock (enumer->hGMem) + enumer->nCount ;
+     font = (FONT *) GlobalLock (enumer->hGMem) + enumer->nCount ;
      font->nFontType = nFontType ;
      font->lf = *lf ;
      font->tm = *tm ;
@@ -111,7 +111,7 @@ int FAR CALLBACK EnumAllFonts (lf, tm, nFontType, enumer)
 void Display (hDC, xChar, yChar, font)
      HDC         hDC ;
      short       xChar, yChar ;
-     FONT FAR    *font ;
+     FONT    *font ;
      {
      static FONT f ;
 
@@ -243,7 +243,7 @@ HDC GetPrinterIC ()
      return NULL ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd ;
      unsigned       iMessage ;
      WORD           wParam ;
@@ -258,7 +258,7 @@ long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HDC            hDC ;
      HFONT          hFont ;
      HMENU          hMenu ;
-     FONT FAR       *font ;
+     FONT       *font ;
      LPSTR          lpFaces ;
      PAINTSTRUCT    ps ;
      short          i ;
@@ -349,7 +349,7 @@ long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
 
                if (bHaveInfo)
                     {
-                    font = (FONT FAR *) GlobalLock (enumer2.hGMem) + nCurrent ;
+                    font = (FONT *) GlobalLock (enumer2.hGMem) + nCurrent ;
                     Display (hDC, xChar, yChar, font) ;
                     hFont = SelectObject (hDC, CreateFontIndirect (&font->lf));
 

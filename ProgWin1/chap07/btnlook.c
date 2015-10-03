@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <stdio.h>
 
-long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE   hInstance, hPrevInstance ;
@@ -71,7 +71,7 @@ struct
 
 #define NUM (sizeof button / sizeof button [0])
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND         hWnd ;
      unsigned     iMessage ;
      WORD         wParam ;

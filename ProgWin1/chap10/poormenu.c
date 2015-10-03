@@ -6,7 +6,7 @@
 #define IDM_HELP    2
 #define IDM_REMOVE  3
 
-long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
 
 static char szAppName [] = "PoorMenu" ;
 
@@ -61,7 +61,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
      unsigned iMessage ;
      WORD     wParam ;

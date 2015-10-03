@@ -11,7 +11,7 @@ char   szCaption [] = "Print Program 4 (Banding)" ;
 BOOL   bUserAbort ;
 HWND   hDlgPrint ;
 
-BOOL FAR CALLBACK PrintDlgProc (hDlg, iMessage, wParam, lParam)
+BOOL CALLBACK PrintDlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
      unsigned iMessage ;
      WORD     wParam ;
@@ -38,7 +38,7 @@ BOOL FAR CALLBACK PrintDlgProc (hDlg, iMessage, wParam, lParam)
      return TRUE ;
      }          
 
-BOOL FAR CALLBACK AbortProc (hPrnDC, nCode)
+BOOL CALLBACK AbortProc (hPrnDC, nCode)
      HDC   hPrnDC ;
      short nCode ;
      {

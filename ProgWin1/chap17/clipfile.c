@@ -10,7 +10,7 @@
 extern BOOL DoFileOpenDlg (HANDLE, HWND, PSTR, PSTR, WORD,   PSTR, POFSTRUCT) ;
 extern BOOL DoFileSaveDlg (HANDLE, HWND, PSTR, PSTR, WORD *, PSTR, POFSTRUCT) ;
 
-long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
 
 typedef struct
      {
@@ -77,7 +77,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-BOOL FAR CALLBACK MFPInfoDlgProc (hDlg, iMessage, wParam, lParam)
+BOOL CALLBACK MFPInfoDlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
      unsigned iMessage ;
      WORD     wParam ;
@@ -380,7 +380,7 @@ void SaveFile (hWnd, wFormat)
                     }
                lpGMem = GlobalLock (hGMem) ;
 
-               * (BMFILEHDR FAR *) lpGMem = bmhdr ;
+               * (BMFILEHDR *) lpGMem = bmhdr ;
                GetBitmapBits (hBitmap, dwLength - sizeof (BMFILEHDR),
                                          lpGMem + sizeof (BMFILEHDR)) ;
                break ;
@@ -518,7 +518,7 @@ void PaintWindow (hWnd, hDC, wFormat)
      SetWindowText (hWnd, szBuffer) ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
      WORD        wParam ;

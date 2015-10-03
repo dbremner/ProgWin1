@@ -4,7 +4,7 @@
 
 extern char szAppName [] ;              /* in POPPAD.C */
 
-BOOL FAR CALLBACK PrintDlgProc (hDlg, iMessage, wParam, lParam)
+BOOL CALLBACK PrintDlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
      unsigned iMessage ;
      WORD     wParam ;
@@ -13,7 +13,7 @@ BOOL FAR CALLBACK PrintDlgProc (hDlg, iMessage, wParam, lParam)
      return FALSE ;
      }
 
-BOOL FAR CALLBACK AbortProc (hPrinterDC, nCode)
+BOOL CALLBACK AbortProc (hPrinterDC, nCode)
      HDC   hPrinterDC ;
      short nCode ;
      {

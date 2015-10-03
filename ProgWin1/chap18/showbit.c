@@ -2,7 +2,7 @@
 
 #include <windows.h>
 
-long  FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long  CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE   hInstance, hPrevInstance ;
@@ -72,7 +72,7 @@ void DrawBitmap (hDC, xStart, yStart, hBitmap)
      DeleteDC (hMemDC) ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND          hWnd ;
      unsigned      iMessage ;
      WORD          wParam ;

@@ -20,9 +20,9 @@ typedef struct {
      }
      ENUMSIZE ;
 
-long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
-int  FAR CALLBACK EnumAllFaces (LPLOGFONT, LPTEXTMETRIC, short, ENUMFACE FAR *) ;
-int  FAR CALLBACK EnumAllSizes (LPLOGFONT, LPTEXTMETRIC, short, ENUMSIZE FAR *) ;
+long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+int  CALLBACK EnumAllFaces (LPLOGFONT, LPTEXTMETRIC, short, ENUMFACE *) ;
+int  CALLBACK EnumAllSizes (LPLOGFONT, LPTEXTMETRIC, short, ENUMSIZE *) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE   hInstance, hPrevInstance ;
@@ -67,11 +67,11 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-int FAR CALLBACK EnumAllFaces (lplf, lptm, nFontType, lpef)
+int CALLBACK EnumAllFaces (lplf, lptm, nFontType, lpef)
      LPLOGFONT    lplf ;
      LPTEXTMETRIC lptm ;
      short        nFontType ;
-     ENUMFACE FAR *lpef ;
+     ENUMFACE *lpef ;
      {
      if (nFontType & RASTER_FONTTYPE)
           {
@@ -82,11 +82,11 @@ int FAR CALLBACK EnumAllFaces (lplf, lptm, nFontType, lpef)
      return 1 ;
      }
 
-int FAR CALLBACK EnumAllSizes (lplf, lptm, nFontType, lpes)
+int CALLBACK EnumAllSizes (lplf, lptm, nFontType, lpes)
      LPLOGFONT    lplf ;
      LPTEXTMETRIC lptm ;
      short        nFontType ;
-     ENUMSIZE FAR *lpes ;
+     ENUMSIZE *lpes ;
      {
      if (lpes->nAspect == (100 * lptm->tmDigitizedAspectY /
                                  lptm->tmDigitizedAspectX))
@@ -236,7 +236,7 @@ void Justify (hDC, hResource, ptClient, nCurAlign)
      GlobalUnlock (hResource) ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND            hWnd ;
      unsigned        iMessage ;
      WORD            wParam ;

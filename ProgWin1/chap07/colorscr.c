@@ -3,8 +3,8 @@
 #include <windows.h>
 #include <stdlib.h>
 
-long FAR CALLBACK WndProc    (HWND, unsigned, WORD, LONG) ;
-long FAR CALLBACK ScrollProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc    (HWND, unsigned, WORD, LONG) ;
+long CALLBACK ScrollProc (HWND, unsigned, WORD, LONG) ;
 
 FARPROC lpfnOldScr[3] ;
 HWND    hChScrol[3], hChLabel[3], hChValue[3], hChRect ;
@@ -88,7 +88,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND          hWnd;
      unsigned      iMessage;
      WORD          wParam;
@@ -209,7 +209,7 @@ long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      return 0L ;
      }
 
-long FAR CALLBACK ScrollProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK ScrollProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
      unsigned iMessage ;
      WORD     wParam ;

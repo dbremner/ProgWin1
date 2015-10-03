@@ -2,8 +2,8 @@
 
 #include <windows.h>
 
-long FAR CALLBACK WndProc     (HWND, unsigned, WORD, LONG) ;
-BOOL FAR CALLBACK ColorScrDlg (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc     (HWND, unsigned, WORD, LONG) ;
+BOOL CALLBACK ColorScrDlg (HWND, unsigned, WORD, LONG) ;
 
 HWND  hDlgModeless ;
 
@@ -57,7 +57,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-BOOL FAR CALLBACK ColorScrDlg (hDlg, iMessage, wParam, lParam)
+BOOL CALLBACK ColorScrDlg (hDlg, iMessage, wParam, lParam)
      HWND         hDlg ;
      unsigned     iMessage ;
      WORD         wParam ;
@@ -125,7 +125,7 @@ BOOL FAR CALLBACK ColorScrDlg (hDlg, iMessage, wParam, lParam)
      return TRUE ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd;
      unsigned iMessage;
      WORD     wParam;

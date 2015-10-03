@@ -8,8 +8,8 @@
 #define  MAXPATH     100
 #define  MAXREAD    2048
 
-long FAR CALLBACK WndProc  (HWND, unsigned, WORD, LONG) ;
-long FAR CALLBACK ListProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc  (HWND, unsigned, WORD, LONG) ;
+long CALLBACK ListProc (HWND, unsigned, WORD, LONG) ;
 
 char    sReadBuffer [MAXREAD] ;
 FARPROC lpfnOldList ;
@@ -58,7 +58,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND            hWnd ;
      unsigned        iMessage ;
      WORD            wParam ;
@@ -180,7 +180,7 @@ long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      return 0L ;
      }
 
-long FAR CALLBACK ListProc (hWnd, iMessage, wParam, lParam)
+long CALLBACK ListProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
      unsigned iMessage ;
      WORD     wParam ;

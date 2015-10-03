@@ -243,34 +243,4 @@ BOOL CALLBACK FileSaveDlgProc (hDlg, iMessage, wParam, lParam)
         }
      return TRUE ;
      }
-
-static char *strchr (str, ch)
-     char *str ;
-     int  ch ;
-     {
-     while (*str)
-          {
-          if (ch == *str)
-               return str ;
-          str = (PSTR) AnsiNext (str) ;
-          }
-     return NULL ;
-     }
-
-static char *strrchr (str, ch)
-     char *str ;
-     int  ch ;
-     {
-     char *strl = str + strlen (str) ;
-
-     do
-          {
-          if (ch == *strl)
-               return strl ;
-          strl = (PSTR) AnsiPrev (str, strl) ;
-          }
-     while (strl > str) ;
-
-     return NULL ;
-     }
 

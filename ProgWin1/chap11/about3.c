@@ -174,7 +174,7 @@ long CALLBACK EllipPushWndProc (hWnd, iMessage, wParam, lParam)
                                         /* fall through */
           case WM_LBUTTONUP:
                SendMessage (GetParent (hWnd), WM_COMMAND,
-                    GetWindowWord (hWnd, GWW_ID), (LONG) hWnd) ;
+                    GetWindowLongPtr (hWnd, GWLP_ID), (LONG) hWnd) ;
                break ;
 
           default :

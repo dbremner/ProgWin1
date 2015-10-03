@@ -93,7 +93,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                          wSelection = wParam ;
                          CheckMenuItem (hMenu, wSelection, MF_CHECKED) ;
      
-                         SetClassWord (hWnd, GCW_HBRBACKGROUND,
+                         SetClassLongPtr (hWnd, GCLP_HBRBACKGROUND,
                               GetStockObject (wColorID [wParam - IDM_WHITE])) ;
 
                          InvalidateRect (hWnd, NULL, TRUE) ;

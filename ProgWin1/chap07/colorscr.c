@@ -67,8 +67,8 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
                               0, 0, 0, 0,
                               hWnd, n + 6, hInstance, NULL) ; 
 
-          lpfnOldScr[n] = (FARPROC) GetWindowLong (hChScrol[n], GWL_WNDPROC) ;
-          SetWindowLong (hChScrol[n], GWL_WNDPROC, (LONG) ScrollProc) ;
+          lpfnOldScr[n] = (FARPROC) GetWindowLongPtr (hChScrol[n], GWLP_WNDPROC) ;
+          SetWindowLongPtr (hChScrol[n], GWLP_WNDPROC, (LONG_PTR) ScrollProc) ;
 
           SetScrollRange (hChScrol[n], SB_CTL, 0, 255, FALSE) ;
           SetScrollPos   (hChScrol[n], SB_CTL, 0, FALSE) ;
@@ -169,8 +169,8 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                SetScrollPos  (hChScrol[n], SB_CTL, color[n], TRUE) ;
                SetWindowText (hChValue[n], itoa (color[n], szbuffer, 10)) ;
 
-               DeleteObject (GetClassWord (hWnd, GCW_HBRBACKGROUND)) ;
-               SetClassWord (hWnd, GCW_HBRBACKGROUND,
+               DeleteObject (GetClassLongPtr (hWnd, GCLP_HBRBACKGROUND)) ;
+               SetClassLongPtr (hWnd, GCLP_HBRBACKGROUND,
                     CreateSolidBrush (RGB (color[0], color[1], color[2]))) ;
 
                InvalidateRect (hWnd, NULL, TRUE) ;
@@ -195,7 +195,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                break ;
 
           case WM_DESTROY:
-               DeleteObject (GetClassWord (hWnd, GCW_HBRBACKGROUND)) ;
+               DeleteObject (GetClassLongPtr (hWnd, GCLP_HBRBACKGROUND)) ;
                for (n = 0 ; n < 3 ; DeleteObject (hBrush [n++])) ;
                PostQuitMessage (0) ;
                break ;

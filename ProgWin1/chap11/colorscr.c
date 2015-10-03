@@ -112,8 +112,8 @@ BOOL CALLBACK ColorScrDlg (hDlg, iMessage, wParam, lParam)
                SetScrollPos  (hCtrl, SB_CTL,      color [nIndex], TRUE) ;
                SetDlgItemInt (hDlg,  nCtrlID + 3, color [nIndex], FALSE) ;
 
-               DeleteObject (GetClassWord (hWndParent, GCW_HBRBACKGROUND)) ;
-               SetClassWord (hWndParent, GCW_HBRBACKGROUND,
+               DeleteObject (GetClassLongPtr (hWndParent, GCLP_HBRBACKGROUND)) ;
+               SetClassLongPtr (hWndParent, GCLP_HBRBACKGROUND,
                     CreateSolidBrush (RGB (color [0], color [1], color [2]))) ;
 
                InvalidateRect (hWndParent, NULL, TRUE) ;
@@ -134,7 +134,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      switch (iMessage)
           {
           case WM_DESTROY:
-               DeleteObject (GetClassWord (hWnd, GCW_HBRBACKGROUND)) ;
+               DeleteObject (GetClassLongPtr (hWnd, GCLP_HBRBACKGROUND)) ;
                PostQuitMessage (0) ;
                break ;
 

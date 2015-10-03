@@ -61,7 +61,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      switch (iMessage)
           {
           case WM_CREATE:
-               hInstance = GetWindowWord (hWnd, GWW_HINSTANCE) ;
+               hInstance = GetWindowLongPtr(hWnd, GWLP_HINSTANCE) ;
 
                hMenuMain = LoadMenu (hInstance, "MenuMain") ;
                hMenuFile = LoadMenu (hInstance, "MenuFile") ;

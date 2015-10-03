@@ -92,20 +92,20 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                                    GetSystemMetrics (SM_CXVSCROLL),
                               tm.tmHeight * 10,
                               hWnd, 1,
-                              GetWindowWord (hWnd, GWW_HINSTANCE), NULL) ;
+                              GetWindowLongPtr(hWnd, GWLP_HINSTANCE), NULL) ;
 
                hWndText = CreateWindow ("static", getcwd (szBuffer, MAXPATH),
                               WS_CHILDWINDOW | WS_VISIBLE | SS_LEFT,
                               tm.tmAveCharWidth,           tm.tmHeight,
                               tm.tmAveCharWidth * MAXPATH, tm.tmHeight,
                               hWnd, 2,
-                              GetWindowWord (hWnd, GWW_HINSTANCE), NULL) ;
+                              GetWindowLongPtr(hWnd, GWLP_HINSTANCE), NULL) ;
 
                lpfnOldList = (FARPROC) GetWindowLong (hWndList, GWL_WNDPROC) ;
 
                SetWindowLong (hWndList, GWL_WNDPROC,
                          (LONG) MakeProcInstance ((FARPROC) ListProc,
-                                   GetWindowWord (hWnd, GWW_HINSTANCE))) ;
+                                   GetWindowLongPtr(hWnd, GWLP_HINSTANCE))) ;
 
                SendMessage (hWndList, LB_DIR, 0x37, (LONG) "*.*") ;
                break ;

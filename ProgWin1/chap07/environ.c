@@ -77,14 +77,14 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                                    GetSystemMetrics (SM_CXVSCROLL),
                               tm.tmHeight * 5,
                               hWnd, 1,
-                              GetWindowWord (hWnd, GWW_HINSTANCE), NULL) ;
+                              GetWindowLongPtr(hWnd, GWLP_HINSTANCE), NULL) ;
 
                hWndText = CreateWindow ("static", NULL,
                               WS_CHILD | WS_VISIBLE | SS_LEFT,
                               tm.tmAveCharWidth,          tm.tmHeight,
                               tm.tmAveCharWidth * MAXENV, tm.tmHeight,
                               hWnd, 2,
-                              GetWindowWord (hWnd, GWW_HINSTANCE), NULL) ;
+                              GetWindowLongPtr(hWnd, GWLP_HINSTANCE), NULL) ;
 
                for (n = 0 ; environ[n] ; n++)
                     {

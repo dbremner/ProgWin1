@@ -80,7 +80,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                               WS_CHILDWINDOW | WS_VISIBLE,
                               0, 0, 0, 0,
                               hWnd, y << 8 | x,
-                              GetWindowWord (hWnd, GWW_HINSTANCE), NULL) ;
+                              GetWindowLongPtr(hWnd, GWLP_HINSTANCE), NULL) ;
                          }
                break ;
 

@@ -62,7 +62,6 @@ BOOL PrintMyPage (hWnd)
      static char szMessage [] = "Print3: Printing" ; 
      BOOL        bError = FALSE ;
      HDC         hPrnDC ;
-     RECT        rect ;
      short       xPage, yPage ;
 
      if (NULL == (hPrnDC = GetPrinterDC ()))
@@ -96,8 +95,6 @@ BOOL PrintMyPage (hWnd)
           DestroyWindow (hDlgPrint) ;
           }
 
-     FreeProcInstance (lpfnPrintDlgProc) ;
-     FreeProcInstance (lpfnAbortProc) ;
      DeleteDC (hPrnDC) ;
 
      return bError || bUserAbort ;

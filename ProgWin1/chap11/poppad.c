@@ -7,7 +7,7 @@
 #include "poppad.h"
 #define  EDITID 1
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG);
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM);
 
 BOOL ReadFile  (HANDLE, HWND, HWND, POFSTRUCT, char *, BOOL) ;
 BOOL WriteFile (HANDLE, HWND, HWND, POFSTRUCT, char *, BOOL) ;
@@ -70,9 +70,9 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 
 BOOL CALLBACK AboutDlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
-     unsigned iMessage ;
-     WORD     wParam ;
-     LONG     lParam ;
+     UINT iMessage ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      switch (iMessage)
           {
@@ -131,8 +131,8 @@ short AskAboutSave (hWnd, szFileName)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd;
      unsigned       iMessage;
-     WORD           wParam;
-     LONG           lParam;
+     WORD  wParam;
+     LPARAM lParam;
      {
      static BOOL    bNeedSave = FALSE ;
      static char    szRealFileName [16] ;

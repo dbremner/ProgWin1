@@ -26,7 +26,7 @@ BOOL  CALLBACK AddString    (LPSTR) ;      /* functions in STRLIB */
 BOOL  CALLBACK DeleteString (LPSTR) ;
 short CALLBACK GetStrings   (FARPROC, CBPARM *) ;
 
-long  CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long  CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 char  szAppName [] = "StrProg" ;
 char  szString  [MAXLEN] ;
@@ -76,9 +76,9 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 
 BOOL CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
-     unsigned iMessage ;
-     WORD     wParam ;
-     LONG     lParam ;
+     UINT iMessage ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      switch (iMessage)
           {
@@ -110,7 +110,7 @@ BOOL CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
 
 BOOL CALLBACK EnumCallBack (hWnd, lParam)
      HWND hWnd ;
-     LONG lParam ;
+     LPARAM lParam ;
      {
      char szClassName [16] ;
 
@@ -140,8 +140,8 @@ BOOL CALLBACK GetStrCallBack (lpString, lpcbp)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd ;
      unsigned       iMessage ;
-     WORD           wParam ;
-     LONG           lParam ;
+     WORD  wParam ;
+     LPARAM lParam ;
      {
      static FARPROC lpfnDlgProc, lpfnGetStrCallBack, lpfnEnumCallBack ;
      static HANDLE  hInstance ;

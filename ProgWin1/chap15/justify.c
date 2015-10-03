@@ -20,7 +20,7 @@ typedef struct {
      }
      ENUMSIZE ;
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 int  CALLBACK EnumAllFaces (LPLOGFONT, LPTEXTMETRIC, short, ENUMFACE *) ;
 int  CALLBACK EnumAllSizes (LPLOGFONT, LPTEXTMETRIC, short, ENUMSIZE *) ;
 
@@ -239,8 +239,8 @@ void Justify (hDC, hResource, ptClient, nCurAlign)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND            hWnd ;
      unsigned        iMessage ;
-     WORD            wParam ;
-     LONG            lParam ;
+     WORD  wParam ;
+     LPARAM lParam ;
      {
      static ENUMFACE ef ;
      static ENUMSIZE es ;

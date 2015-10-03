@@ -5,7 +5,7 @@
 
 #define WM_PRTSC WM_USER 
 
-long  CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long  CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 DWORD CALLBACK KeyboardHook (int, WORD, LONG) ;
 int   PrintScreen () ;
 
@@ -71,8 +71,8 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 
 DWORD CALLBACK KeyboardHook (iCode, wParam, lParam)
      int  iCode ;
-     WORD wParam ;
-     LONG lParam ;
+     WPARAM wParam ;
+     LPARAM lParam ;
      {
      if (iCode == HC_ACTION && wParam == VK_F9 &&
                                GetKeyState (VK_SHIFT)   < 0 &&
@@ -90,8 +90,8 @@ DWORD CALLBACK KeyboardHook (iCode, wParam, lParam)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
-     WORD        wParam ;
-     LONG        lParam ;
+     WPARAM  wParam ;
+     LPARAM lParam ;
      {
      static BOOL bNowPrinting = FALSE ;
      static char *szErrMsg [] = { "Already printing screen.  Try later.",

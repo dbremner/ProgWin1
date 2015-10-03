@@ -8,8 +8,8 @@
 #define  MAXPATH     100
 #define  MAXREAD    2048
 
-long CALLBACK WndProc  (HWND, unsigned, WORD, LONG) ;
-long CALLBACK ListProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc  (HWND, UINT, WPARAM, LPARAM) ;
+long CALLBACK ListProc (HWND, UINT, WPARAM, LPARAM) ;
 
 char    sReadBuffer [MAXREAD] ;
 FARPROC lpfnOldList ;
@@ -61,8 +61,8 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND            hWnd ;
      unsigned        iMessage ;
-     WORD            wParam ;
-     LONG            lParam ;
+     WORD  wParam ;
+     LPARAM lParam ;
      {
      static BOOL     bValidFile ;
      static char     szFile [16] ;
@@ -182,9 +182,9 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
 
 long CALLBACK ListProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
-     unsigned iMessage ;
-     WORD     wParam ;
-     LONG     lParam ;
+     UINT iMessage ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      short    n = GetWindowWord (hWnd, GWW_ID) ;
 

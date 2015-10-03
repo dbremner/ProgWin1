@@ -3,7 +3,7 @@
 #include <windows.h>
 #include "poepoem.h"
 
-long CALLBACK WndProc  (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc  (HWND, UINT, WPARAM, LPARAM) ;
 
 char   szAppName [10] ;
 char   szCaption [35] ;
@@ -65,8 +65,8 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND          hWnd ;
      unsigned      iMessage ;
-     WORD          wParam ;
-     LONG          lParam ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      static HANDLE hResource ;
      static HWND   hScroll ;

@@ -4,7 +4,7 @@
 #include <string.h>
 #include "grafmenu.h"
 
-long CALLBACK WndProc  (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc  (HWND, UINT, WPARAM, LPARAM) ;
 HBITMAP StretchBitmap (HBITMAP) ;
 HBITMAP GetBitmapFont (int) ;
 
@@ -180,9 +180,9 @@ HBITMAP GetBitmapFont (i)
 
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
-     unsigned iMessage ;
-     WORD     wParam ;
-     LONG     lParam ;
+     UINT iMessage ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      HMENU    hMenu ;
      static   short nCurrentFont = IDM_COUR ;
@@ -203,7 +203,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                          break ;
                     default:
                          return DefWindowProc (hWnd, iMessage,
-                                                       wParam, lParam) ;
+                                wParam, lParam) ;
                     }
                break ;
 

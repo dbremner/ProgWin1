@@ -4,8 +4,8 @@
 #include <string.h>
 #include "filedlg.h"
 
-BOOL CALLBACK FileOpenDlgProc (HWND, unsigned, WORD, LONG) ;
-BOOL CALLBACK FileSaveDlgProc (HWND, unsigned, WORD, LONG) ;
+BOOL CALLBACK FileOpenDlgProc (HWND, UINT, WPARAM, LPARAM) ;
+BOOL CALLBACK FileSaveDlgProc (HWND, UINT, WPARAM, LPARAM) ;
 
 static char      szDefExt   [5]  ;
 static char      szFileName [96] ;
@@ -68,8 +68,8 @@ int DoFileSaveDlg (hInst, hWnd, szFileSpecIn, szDefExtIn, pwStatusOut,
 BOOL CALLBACK FileOpenDlgProc (hDlg, iMessage, wParam, lParam)
      HWND      hDlg ;
      unsigned  iMessage ;
-     WORD      wParam ;
-     LONG      lParam ;
+     WORD  wParam ;
+     LPARAM lParam ;
      {
      char      cLastChar ;
      short     nEditLen ;
@@ -186,8 +186,8 @@ BOOL CALLBACK FileOpenDlgProc (hDlg, iMessage, wParam, lParam)
 BOOL CALLBACK FileSaveDlgProc (hDlg, iMessage, wParam, lParam)
      HWND      hDlg ;
      unsigned  iMessage ;
-     WORD      wParam ;
-     LONG      lParam ;
+     WORD  wParam ;
+     LPARAM lParam ;
      {
      switch (iMessage)
         {

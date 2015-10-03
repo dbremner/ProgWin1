@@ -4,8 +4,8 @@
 
 #define IDM_ABOUT 1
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
-long CALLBACK EllipPushWndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
+long CALLBACK EllipPushWndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance;
@@ -67,9 +67,9 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 
 BOOL CALLBACK AboutDlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
-     unsigned iMessage ;
-     WORD     wParam ;
-     LONG     lParam ;
+     UINT iMessage ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      switch (iMessage)
           {
@@ -97,8 +97,8 @@ BOOL CALLBACK AboutDlgProc (hDlg, iMessage, wParam, lParam)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd;
      unsigned       iMessage;
-     WORD           wParam;
-     LONG           lParam;
+     WORD  wParam;
+     LPARAM lParam;
      {
      static FARPROC lpfnAboutDlgProc ;
      static HWND    hInstance ;
@@ -140,8 +140,8 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
 long CALLBACK EllipPushWndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd;
      unsigned    iMessage;
-     WORD        wParam;
-     LONG        lParam;
+     WPARAM  wParam;
+     LPARAM lParam;
      {
      char        szText [40] ;
      HBRUSH      hBrush ;

@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <stdio.h>
 
-long  CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long  CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 RECT  rect ;
 short xChar, yChar ;
@@ -56,8 +56,8 @@ void ShowKey (hWnd, iType, szMessage, wParam, lParam)
      HWND        hWnd ;
      int         iType ;
      char        *szMessage ;
-     WORD        wParam ;
-     LONG        lParam ;
+     WPARAM  wParam ;
+     LPARAM lParam ;
      {
      static char *szFormat [2] = { "%-11s %3d    %c %6u %4d %3s %4s %4s",
                                    "%-11s    %3d %c %6u %4d %3s %4s %4s" } ;
@@ -83,8 +83,8 @@ void ShowKey (hWnd, iType, szMessage, wParam, lParam)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
-     WORD        wParam ;
-     LONG        lParam ;
+     WPARAM  wParam ;
+     LPARAM lParam ;
      {
      static char szTop [] = "Message     Key Char Repeat Scan ALT Prev Tran" ;
      static char szUnd [] = "_______     ___ ____ ______ ____ ___ ____ ____" ; 

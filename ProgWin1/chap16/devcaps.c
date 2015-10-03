@@ -10,7 +10,7 @@ void DoBasicInfo (HDC, HDC, short, short) ;            /* in DEVCAPS2.C */
 void DoOtherInfo (HDC, HDC, short, short) ;
 void DoBitCodedCaps (HDC, HDC, short, short, short) ;
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
@@ -110,8 +110,8 @@ void DoEscSupport (hDC, hIC, xChar, yChar)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND          hWnd ;
      unsigned      iMessage ;
-     WORD          wParam ;
-     LONG          lParam ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      static char   szAllDevices [4096], szDevice [32], szDriver [16],
                    szDriverFile [16], szWindowText [64] ;
@@ -134,7 +134,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                yChar = tm.tmHeight + tm.tmExternalLeading ;
                ReleaseDC (hWnd, hDC) ;
 
-               lParam = NULL ;
+     lParam = NULL ;
                                                   /* fall through */
           case WM_WININICHANGE:
 
@@ -161,7 +161,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                ChangeMenu (hMenu, 0, NULL, 0, MF_APPEND) ;
                ChangeMenu (hMenu, 0, "Device Mode", IDM_DEVMODE, MF_APPEND) ;
 
-               wParam = IDM_SCREEN ;
+  wParam = IDM_SCREEN ;
                                                   /* fall through */
           case WM_COMMAND:
                hMenu = GetMenu (hWnd) ;

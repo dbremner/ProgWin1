@@ -4,7 +4,7 @@
 #include <math.h>
 #define TWO_PI (2.0 * 3.14159)
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
@@ -53,8 +53,8 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND         hWnd ;
      unsigned     iMessage ;
-     WORD         wParam ;
-     LONG         lParam ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      static HRGN  hRgnClip ;
      static short xClient, yClient ;

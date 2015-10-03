@@ -2,8 +2,8 @@
 
 #include <windows.h>
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
-long CALLBACK PopupWndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
+long CALLBACK PopupWndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
@@ -114,9 +114,9 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
-     unsigned iMessage ;
-     WORD     wParam ;
-     LONG     lParam ;
+     UINT iMessage ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      switch (iMessage)
           {
@@ -132,9 +132,9 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
 
 long CALLBACK PopupWndProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
-     unsigned iMessage ;
-     WORD     wParam ;
-     LONG     lParam ;
+     UINT iMessage ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      return DefWindowProc (hWnd, iMessage, wParam, lParam) ;
      }

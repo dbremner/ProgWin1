@@ -4,8 +4,8 @@
 
 #define DIVISIONS 5
 
-long CALLBACK WndProc      (HWND, unsigned, WORD, LONG) ;
-long CALLBACK ChildWndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc      (HWND, UINT, WPARAM, LPARAM) ;
+long CALLBACK ChildWndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 char szChildClass [] = "Checker3_Child" ;
 
@@ -64,8 +64,8 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
-     WORD        wParam ;
-     LONG        lParam ;
+     WPARAM  wParam ;
+     LPARAM lParam ;
      {
      static HWND hChild [DIVISIONS] [DIVISIONS] ;
      short       xBlock, yBlock, x, y ;
@@ -111,8 +111,8 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
 long CALLBACK ChildWndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
-     WORD        wParam ;
-     LONG        lParam ;
+     WPARAM  wParam ;
+     LPARAM lParam ;
      {
      HDC         hDC ;
      PAINTSTRUCT ps ;

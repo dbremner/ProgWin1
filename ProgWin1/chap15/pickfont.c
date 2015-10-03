@@ -3,8 +3,8 @@
 #include <windows.h>
 #include "pickfont.h"
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
-BOOL CALLBACK DlgProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
+BOOL CALLBACK DlgProc (HWND, UINT, WPARAM, LPARAM) ;
 
 char    szAppName [] = "PickFont" ;
 DWORD   dwAspectMatch = 0L ;
@@ -138,9 +138,9 @@ void ShowMetrics (hDlg)
 
 BOOL CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
-     unsigned iMessage ;
-     WORD     wParam ;
-     LONG     lParam ;
+     UINT iMessage ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      switch (iMessage)
           {
@@ -194,7 +194,7 @@ BOOL CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
                     case IDD_QDEF:
                     case IDD_QPROOF:
                          CheckRadioButton (hDlg, IDD_QDRAFT, IDD_QPROOF,
-                                                                      wParam) ;
+                                               wParam) ;
                          lf.lfQuality = (BYTE) (wParam - IDD_QDRAFT) ;
                          break ;
 
@@ -233,8 +233,8 @@ BOOL CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND         hWnd;
      unsigned     iMessage;
-     WORD         wParam;
-     LONG         lParam;
+     WPARAM  wParam;
+     LPARAM  lParam;
      {
      static char  szText [] =
                       "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPqQqRrSsTtUuVvWwXxYyZz" ;

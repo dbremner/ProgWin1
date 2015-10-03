@@ -13,9 +13,9 @@ HWND   hDlgPrint ;
 
 BOOL CALLBACK PrintDlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
-     unsigned iMessage ;
-     WORD     wParam ;
-     DWORD    lParam ;
+     UINT iMessage ;
+     WPARAM  wParam ;
+     DWORD  lParam ;
      {
      switch (iMessage)
           {

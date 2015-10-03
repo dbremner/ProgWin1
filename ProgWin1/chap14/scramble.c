@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #define   NUM  200 
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE       hInstance, hPrevInstance ;

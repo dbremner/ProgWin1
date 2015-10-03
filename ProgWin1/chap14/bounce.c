@@ -2,7 +2,7 @@
 
 #include <windows.h>
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
@@ -57,8 +57,8 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND          hWnd ;
      unsigned      iMessage ;
-     WORD          wParam ;
-     LONG          lParam ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      static HANDLE hBitmap ;
      static short  xClient, yClient, xCenter, yCenter, xTotal, yTotal,

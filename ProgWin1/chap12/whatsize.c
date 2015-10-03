@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <stdio.h>
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
@@ -74,8 +74,8 @@ void Show (hWnd, hDC, xText, yText, nMapMode, szMapMode)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND         hWnd ;
      unsigned     iMessage ;
-     WORD         wParam ;
-     LONG         lParam ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      static char  szHeading [] =
                     "Mapping Mode            Left   Right     Top  Bottom" ;

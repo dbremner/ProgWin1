@@ -2,7 +2,7 @@
 
 #include <windows.h>
 
-long CALLBACK WndProc  (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc  (HWND, UINT, WPARAM, LPARAM) ;
 
 char   szAppName [] = "Resourc1" ;
 HANDLE hInst ;
@@ -54,8 +54,8 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND         hWnd ;
      unsigned     iMessage ;
-     WORD         wParam ;
-     LONG         lParam ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      HDC          hDC ;
      RECT         rect ;

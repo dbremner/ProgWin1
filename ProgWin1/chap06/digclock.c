@@ -12,7 +12,7 @@
 #define MIN   (datetime->tm_min)
 #define SEC   (datetime->tm_sec)
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG);
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM);
 void SizeTheWindow (short *, short *, short *, short *) ;
 
 char  sDate [2], sTime [2], sAMPM [2][5] ;
@@ -135,8 +135,8 @@ void WndPaint (hWnd, hDC)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd;
      unsigned    iMessage;
-     WORD        wParam;
-     LONG        lParam;
+     WPARAM  wParam;
+     LPARAM lParam;
      {
      HDC         hDC ;
      PAINTSTRUCT ps;

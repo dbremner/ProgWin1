@@ -2,8 +2,8 @@
 
 #include <windows.h>
 
-long CALLBACK WndProc   (HWND, unsigned, WORD, LONG) ;
-void CALLBACK TimerProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc   (HWND, UINT, WPARAM, LPARAM) ;
+void CALLBACK TimerProc (HWND, UINT, WPARAM, LPARAM) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
@@ -60,18 +60,18 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 
 void CALLBACK TimerProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
-     unsigned iMessage ;
-     WORD     wParam ;
-     LONG     lParam ;
+     UINT iMessage ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      MessageBeep (0) ;
      }
 
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
-     unsigned iMessage ;
-     WORD     wParam ;
-     LONG     lParam ;
+     UINT iMessage ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      switch (iMessage)
           {

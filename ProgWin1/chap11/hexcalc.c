@@ -6,7 +6,7 @@
 #include <string.h>
 #include <ctype.h>
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance;
@@ -80,8 +80,8 @@ DWORD CalcIt (dwFirstNum, nOperation, dwNum)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND         hWnd;
      unsigned     iMessage;
-     WORD         wParam;
-     LONG         lParam;
+     WPARAM  wParam;
+     LPARAM  lParam;
      {
      static BOOL  bNewNumber = TRUE ;
      static DWORD dwNumber, dwFirstNum ;
@@ -93,11 +93,11 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
           case WM_KEYDOWN:                   /* left arrow --> backspace */
                if (wParam != VK_LEFT)
                     break ;
-               wParam = VK_BACK ;
+  wParam = VK_BACK ;
                                              /* fall through */
           case WM_CHAR:
                if ((wParam = toupper (wParam)) == VK_RETURN)
-                    wParam = '=' ;
+  wParam = '=' ;
 
                if (hButton = GetDlgItem (hWnd, wParam))
                     {

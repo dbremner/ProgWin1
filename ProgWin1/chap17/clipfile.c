@@ -10,7 +10,7 @@
 extern BOOL DoFileOpenDlg (HANDLE, HWND, PSTR, PSTR, WORD,   PSTR, POFSTRUCT) ;
 extern BOOL DoFileSaveDlg (HANDLE, HWND, PSTR, PSTR, WORD *, PSTR, POFSTRUCT) ;
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 typedef struct
      {
@@ -79,9 +79,9 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 
 BOOL CALLBACK MFPInfoDlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
-     unsigned iMessage ;
-     WORD     wParam ;
-     LONG     lParam ;
+     UINT iMessage ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      BOOL     bTrans ;
 
@@ -521,8 +521,8 @@ void PaintWindow (hWnd, hDC, wFormat)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
-     WORD        wParam ;
-     LONG        lParam ;
+     WPARAM  wParam ;
+     LPARAM lParam ;
      {
      static HWND hWndNextViewer ;
      static WORD wFormat = IDM_TXT ; /* = CF_TEXT */ 

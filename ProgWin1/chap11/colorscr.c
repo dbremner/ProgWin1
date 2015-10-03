@@ -2,8 +2,8 @@
 
 #include <windows.h>
 
-long CALLBACK WndProc     (HWND, unsigned, WORD, LONG) ;
-BOOL CALLBACK ColorScrDlg (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc     (HWND, UINT, WPARAM, LPARAM) ;
+BOOL CALLBACK ColorScrDlg (HWND, UINT, WPARAM, LPARAM) ;
 
 HWND  hDlgModeless ;
 
@@ -60,8 +60,8 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 BOOL CALLBACK ColorScrDlg (hDlg, iMessage, wParam, lParam)
      HWND         hDlg ;
      unsigned     iMessage ;
-     WORD         wParam ;
-     LONG         lParam ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      static short color [3] ;
      HWND         hWndParent, hCtrl ;
@@ -127,9 +127,9 @@ BOOL CALLBACK ColorScrDlg (hDlg, iMessage, wParam, lParam)
 
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd;
-     unsigned iMessage;
-     WORD     wParam;
-     LONG     lParam;
+     UINT iMessage;
+     WPARAM  wParam;
+     LPARAM  lParam;
      {
      switch (iMessage)
           {

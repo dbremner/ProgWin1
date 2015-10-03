@@ -8,7 +8,7 @@ void DoBasicInfo (HDC, HDC, short, short) ;       /* in DEVCAPS2.C */
 void DoOtherInfo (HDC, HDC, short, short) ;
 void DoBitCodedCaps (HDC, HDC, short, short, short) ;
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 
 int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
@@ -73,8 +73,8 @@ HDC GetPrinterIC ()
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND         hWnd ;
      unsigned     iMessage ;
-     WORD         wParam ;
-     LONG         lParam ;
+     WPARAM  wParam ;
+     LPARAM  lParam ;
      {
      static short xChar, yChar, nCurrentDevice = IDM_SCREEN,
                                 nCurrentInfo   = IDM_BASIC ;

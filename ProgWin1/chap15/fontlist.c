@@ -17,7 +17,7 @@ typedef struct {
      TEXTMETRIC   tm ;
      } FONT ;
 
-long CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+long CALLBACK WndProc (HWND, UINT, WPARAM, LPARAM) ;
 int  CALLBACK EnumAllFaces (LPLOGFONT, LPTEXTMETRIC, short, ENUMER *) ;
 int  CALLBACK EnumAllFonts (LPLOGFONT, LPTEXTMETRIC, short, ENUMER *) ;
 
@@ -246,8 +246,8 @@ HDC GetPrinterIC ()
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd ;
      unsigned       iMessage ;
-     WORD           wParam ;
-     LONG           lParam ;
+     WORD  wParam ;
+     LPARAM lParam ;
      {
      static BOOL    bHaveInfo = FALSE ;
      static ENUMER  enumer1, enumer2 ;

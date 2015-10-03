@@ -42,7 +42,7 @@ void DoBasicInfo (hDC, hIC, xChar, yChar)
           LOGPIXELSY,    "LOGPIXELSY   Vertical dots per inch:"
           } ;
      char   szBuffer [80] ;
-     short  i, nLine ;
+     short  i;
 
      for (i = 0 ; i < sizeof info / sizeof info [0] ; i++)
           TextOut (hDC, xChar, (i + 1) * yChar, szBuffer,

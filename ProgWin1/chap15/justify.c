@@ -171,7 +171,7 @@ void Justify (hDC, hResource, ptClient, nCurAlign)
      {
      DWORD  dwExtent ;
      LPSTR  lpText, lpBegin, lpEnd ;
-     short  i, xStart, yStart, nBreakCount ;
+     short  xStart, yStart, nBreakCount ;
 
      lpText = LockResource (hResource) ;
 

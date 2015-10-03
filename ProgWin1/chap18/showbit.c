@@ -54,7 +54,6 @@ void DrawBitmap (hDC, xStart, yStart, hBitmap)
      HBITMAP hBitmap ;
      {
      BITMAP  bm ;
-     DWORD   dwSize ;
      HDC     hMemDC ;
      POINT   pt ;
 

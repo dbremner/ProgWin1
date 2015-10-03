@@ -29,7 +29,6 @@ BOOL PrintMyPage (hWnd)
      static char szMessage [] = "Print2: Printing" ; 
      BOOL        bError = FALSE ;
      HDC         hPrnDC ;
-     RECT        rect ;
      short       xPage, yPage ;
 
      if (NULL == (hPrnDC = GetPrinterDC ()))

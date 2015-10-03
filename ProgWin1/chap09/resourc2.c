@@ -70,7 +70,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      static short xIcon, yIcon, xClient, yClient ;
      HDC          hDC ;
      PAINTSTRUCT  ps ;
-     RECT         rect ;
      short        x, y ;
 
      switch (iMessage)

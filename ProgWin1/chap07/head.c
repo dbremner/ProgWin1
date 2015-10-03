@@ -71,7 +71,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      static RECT     rect ;
      char            szBuffer [MAXPATH + 1] ;
      HDC             hDC ;
-     int             iHandle, i, iCount ;
+     int             iHandle, i;
      PAINTSTRUCT     ps ;
      TEXTMETRIC      tm ;
 

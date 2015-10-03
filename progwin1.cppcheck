@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="1">
+    <paths>
+        <dir name="C:/Users/dbremner/Documents/Visual Studio 2015/Projects/ProgWin1/ProgWin1"/>
+    </paths>
+    <libraries>
+        <library>microsoft_sal</library>
+        <library>windows</library>
+    </libraries>
+    <suppressions>
+        <suppression>variableScope</suppression>
+    </suppressions>
+</project>

@@ -28,7 +28,6 @@ BOOL PrintMyPage (hWnd)
      {
      static char szMessage [] = "Print2: Printing" ; 
      BOOL        bError = FALSE ;
-     FARPROC     lpfnAbortProc ;
      HDC         hPrnDC ;
      RECT        rect ;
      short       xPage, yPage ;
@@ -41,8 +40,7 @@ BOOL PrintMyPage (hWnd)
 
      EnableWindow (hWnd, FALSE) ;
 
-     lpfnAbortProc = MakeProcInstance (AbortProc, hInst) ;
-     Escape (hPrnDC, SETABORTPROC, 0, (LPSTR) lpfnAbortProc, NULL) ;
+     Escape (hPrnDC, SETABORTPROC, 0, (LPSTR) AbortProc, NULL) ;
 
      if (Escape (hPrnDC, STARTDOC, sizeof szMessage - 1, szMessage, NULL) > 0)
           {
@@ -59,7 +57,6 @@ BOOL PrintMyPage (hWnd)
      if (!bError)
           Escape (hPrnDC, ENDDOC, 0, NULL, NULL) ;
 
-     FreeProcInstance (lpfnAbortProc) ;
      EnableWindow (hWnd, TRUE) ;
      DeleteDC (hPrnDC) ;
      return bError ;

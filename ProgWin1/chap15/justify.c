@@ -244,7 +244,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      {
      static ENUMFACE ef ;
      static ENUMSIZE es ;
-     static FARPROC  lpfnEnumAllFaces, lpfnEnumAllSizes ;
      static HANDLE   hResource ;
      static POINT    ptClient ;
      static short    nCurSize, nCurFace, nCurAttr, nCurAlign = IDM_LEFT ;
@@ -270,15 +269,10 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                SetWindowOrg (hDC, -720, -720) ;
                es.nAspect = (100 * xLogPixPerInch) / yLogPixPerInch ;
 
-                              /* MakeProcInstance for 2 routines */
-
                hInstance = ((LPCREATESTRUCT) lParam)-> hInstance ;
-               lpfnEnumAllFaces = MakeProcInstance (EnumAllFaces, hInstance) ;
-               lpfnEnumAllSizes = MakeProcInstance (EnumAllSizes, hInstance) ;
-
                               /* Enumerate the Font Faces */
 
-               EnumFonts (hDC, NULL, lpfnEnumAllFaces, (LPSTR) &ef) ;
+               EnumFonts (hDC, NULL, EnumAllFaces, (LPSTR) &ef) ;
                ReleaseDC (hWnd, hDC) ;
 
                               /* Initialize the Menus */
@@ -293,7 +287,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                                                   MF_CHANGE | MF_POPUP) ;
                CheckMenuItem (hMenu, IDM_IFACE, MF_CHECKED) ;
 
-               nCurSize = MakeSizeMenu (hWnd, lpfnEnumAllSizes, &es,
+               nCurSize = MakeSizeMenu (hWnd, EnumAllSizes, &es,
                                    ef.szFaceNames [nCurFace]) ;
 
                               /* Load the Text Resource */
@@ -319,7 +313,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                     CheckMenuItem (hMenu, wParam, MF_CHECKED) ;
                     nCurFace = wParam - IDM_IFACE ;
 
-                    nCurSize = MakeSizeMenu (hWnd, lpfnEnumAllSizes, &es,
+                    nCurSize = MakeSizeMenu (hWnd, EnumAllSizes, &es,
                                         ef.szFaceNames [nCurFace]) ;
                     }
 

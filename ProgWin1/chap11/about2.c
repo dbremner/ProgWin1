@@ -168,7 +168,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      WORD  wParam;
      LPARAM lParam;
      {
-     static FARPROC lpfnAboutDlgProc ;
      static HWND    hInstance ;
      HMENU          hMenu ;
      PAINTSTRUCT    ps ;
@@ -177,9 +176,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
           {
           case WM_CREATE:
                hInstance = ((LPCREATESTRUCT) lParam)->hInstance ;
-
-               lpfnAboutDlgProc = MakeProcInstance (AboutDlgProc, hInstance) ;
-
                hMenu = GetSystemMenu (hWnd, FALSE) ;
                ChangeMenu (hMenu, 0, NULL, 0, MF_APPEND) ;
                ChangeMenu (hMenu, 0, "A&bout About2...", IDM_ABOUT, MF_APPEND);
@@ -191,7 +187,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                     {
                     case IDM_ABOUT:
                          if (DialogBox (hInstance, "AboutBox", hWnd,
-                                        lpfnAboutDlgProc))
+                                        AboutDlgProc))
                               InvalidateRect (hWnd, NULL, TRUE) ;
                          break ;
                     }

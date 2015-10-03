@@ -143,7 +143,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      WORD  wParam ;
      LPARAM lParam ;
      {
-     static FARPROC lpfnDlgProc, lpfnGetStrCallBack, lpfnEnumCallBack ;
      static HANDLE  hInstance ;
      static short   xChar, yChar, xClient, yClient ;
      CBPARM         cbparam ;
@@ -155,12 +154,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
           {
           case WM_CREATE:
                hInstance = ((LPCREATESTRUCT) lParam)->hInstance ;
-
-               lpfnDlgProc = MakeProcInstance (DlgProc, hInstance) ;
-               lpfnGetStrCallBack = MakeProcInstance (GetStrCallBack,
-                                                            hInstance) ;
-               lpfnEnumCallBack = MakeProcInstance (EnumCallBack, hInstance) ;
-
                hDC = GetDC (hWnd) ;
                GetTextMetrics (hDC, &tm) ;
                xChar = tm.tmAveCharWidth ;
@@ -175,10 +168,10 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                     case IDM_ENTER:
 
                          if (DialogBox (hInstance, "EnterDlg", hWnd,
-                                             lpfnDlgProc))
+                                             DlgProc))
                               {
                               if (AddString (szString))
-                                   EnumWindows (lpfnEnumCallBack, 0L) ;
+                                   EnumWindows (EnumCallBack, 0L) ;
                               else
                                    MessageBeep (0) ;
                               }
@@ -187,10 +180,10 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                     case IDM_DELETE:
 
                          if (DialogBox (hInstance, "DeleteDlg", hWnd,
-                                             lpfnDlgProc))
+                                             DlgProc))
                               {
                               if (DeleteString (szString))
-                                   EnumWindows (lpfnEnumCallBack, 0L) ;
+                                   EnumWindows (EnumCallBack, 0L) ;
                               else
                                    MessageBeep (0) ;
                               }
@@ -218,7 +211,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                cbparam.xMax  = cbparam.xIncr * (1 + xClient / cbparam.xIncr) ;
                cbparam.yMax  = yChar * (yClient / yChar - 1) ;
 
-               GetStrings (lpfnGetStrCallBack, &cbparam) ;
+               GetStrings (GetStrCallBack, &cbparam) ;
 
                EndPaint (hWnd, &ps) ;
                break ;

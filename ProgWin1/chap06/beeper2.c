@@ -11,7 +11,6 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      int         nCmdShow ;
      {
      static char szAppName [] = "Beeper2" ;
-     FARPROC     lpfnTimerProc ;
      HWND        hWnd ;
      MSG         msg ;
      WNDCLASS    wndclass ;
@@ -39,9 +38,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
                          CW_USEDEFAULT, 0,
                          NULL, NULL, hInstance, NULL) ;
 
-     lpfnTimerProc = MakeProcInstance (TimerProc, hInstance) ;
-
-     while (!SetTimer (hWnd, 1, 1000, lpfnTimerProc))
+     while (!SetTimer (hWnd, 1, 1000, TimerProc))
           if (IDCANCEL == MessageBox (hWnd,
                               "Too many clocks or timers!", szAppName,
                               MB_ICONEXCLAMATION | MB_RETRYCANCEL))

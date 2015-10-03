@@ -104,8 +104,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                lpfnOldList = (FARPROC) GetWindowLong (hWndList, GWL_WNDPROC) ;
 
                SetWindowLong (hWndList, GWL_WNDPROC,
-                         (LONG) MakeProcInstance ((FARPROC) ListProc,
-                                   GetWindowLongPtr(hWnd, GWLP_HINSTANCE))) ;
+                         (LONG) ListProc) ;
 
                SendMessage (hWndList, LB_DIR, 0x37, (LONG) "*.*") ;
                break ;

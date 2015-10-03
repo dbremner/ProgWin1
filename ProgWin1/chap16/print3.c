@@ -61,7 +61,6 @@ BOOL PrintMyPage (hWnd)
      {
      static char szMessage [] = "Print3: Printing" ; 
      BOOL        bError = FALSE ;
-     FARPROC     lpfnAbortProc, lpfnPrintDlgProc ;
      HDC         hPrnDC ;
      RECT        rect ;
      short       xPage, yPage ;
@@ -75,11 +74,9 @@ BOOL PrintMyPage (hWnd)
      EnableWindow (hWnd, FALSE) ;
 
      bUserAbort = FALSE ;
-     lpfnPrintDlgProc = MakeProcInstance (PrintDlgProc, hInst) ;
-     hDlgPrint = CreateDialog (hInst, "PrintDlgBox", hWnd, lpfnPrintDlgProc) ;
+     hDlgPrint = CreateDialog (hInst, "PrintDlgBox", hWnd, PrintDlgProc) ;
 
-     lpfnAbortProc = MakeProcInstance (AbortProc, hInst) ;
-     Escape (hPrnDC, SETABORTPROC, 0, (LPSTR) lpfnAbortProc, NULL) ;
+     Escape (hPrnDC, SETABORTPROC, 0, (LPSTR) AbortProc, NULL) ;
 
      if (Escape (hPrnDC, STARTDOC, sizeof szMessage - 1, szMessage, NULL) > 0)
           {

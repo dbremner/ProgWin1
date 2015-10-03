@@ -21,7 +21,6 @@ int DoFileOpenDlg (hInst, hWnd, szFileSpecIn, szDefExtIn, wFileAttrIn,
      WORD      wFileAttrIn ;
      POFSTRUCT pofIn ;
      {
-     FARPROC   lpfnFileOpenDlgProc ;
      int       iReturn ;
 
      strcpy (szFileSpec, szFileSpecIn) ;
@@ -29,11 +28,7 @@ int DoFileOpenDlg (hInst, hWnd, szFileSpecIn, szDefExtIn, wFileAttrIn,
      wFileAttr = wFileAttrIn ;
      pof = pofIn ;
 
-     lpfnFileOpenDlgProc = MakeProcInstance (FileOpenDlgProc, hInst) ;
-
-     iReturn = DialogBox (hInst, "FileOpen", hWnd, lpfnFileOpenDlgProc) ;
-
-     FreeProcInstance (lpfnFileOpenDlgProc) ;
+     iReturn = DialogBox (hInst, "FileOpen", hWnd, FileOpenDlgProc) ;
 
      strcpy (szFileNameOut, szFileName) ;
      return iReturn ;
@@ -47,18 +42,13 @@ int DoFileSaveDlg (hInst, hWnd, szFileSpecIn, szDefExtIn, pwStatusOut,
      WORD      *pwStatusOut ;
      POFSTRUCT pofIn ;
      {
-     FARPROC   lpfnFileSaveDlgProc ;
      int       iReturn ;
 
      strcpy (szFileSpec, szFileSpecIn) ;
      strcpy (szDefExt,   szDefExtIn) ;
      pof = pofIn ;
 
-     lpfnFileSaveDlgProc = MakeProcInstance (FileSaveDlgProc, hInst) ;
-
-     iReturn = DialogBox (hInst, "FileSave", hWnd, lpfnFileSaveDlgProc) ;
-
-     FreeProcInstance (lpfnFileSaveDlgProc) ;
+     iReturn = DialogBox (hInst, "FileSave", hWnd, FileSaveDlgProc) ;
 
      strcpy (szFileNameOut, szFileName) ;
      *pwStatusOut = wStatus ;

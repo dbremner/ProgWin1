@@ -59,7 +59,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      WORD  wParam ;
      LPARAM lParam ;
      {
-     static FARPROC lpfnLineProc ;
      static short   xClient, yClient, xL, xR, yT, yB ;
      HDC            hDC ;
      PAINTSTRUCT    ps ;
@@ -67,7 +66,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      switch (iMessage)
           {
           case WM_CREATE:
-               lpfnLineProc = MakeProcInstance (LineProc, hInst) ;
                break ;
 
           case WM_SIZE:
@@ -78,15 +76,15 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
           case WM_PAINT:
                hDC = BeginPaint (hWnd, &ps) ;
 
-               LineDDA (xL, yT, xR, yT, lpfnLineProc, (LPSTR) &hDC) ;
-               LineDDA (xR, yT, xR, yB, lpfnLineProc, (LPSTR) &hDC) ;
-               LineDDA (xR, yB, xL, yB, lpfnLineProc, (LPSTR) &hDC) ;
-               LineDDA (xL, yB, xL, yT, lpfnLineProc, (LPSTR) &hDC) ;
+               LineDDA (xL, yT, xR, yT, LineProc, (LPSTR) &hDC) ;
+               LineDDA (xR, yT, xR, yB, LineProc, (LPSTR) &hDC) ;
+               LineDDA (xR, yB, xL, yB, LineProc, (LPSTR) &hDC) ;
+               LineDDA (xL, yB, xL, yT, LineProc, (LPSTR) &hDC) ;
 
-               LineDDA (0,       0,       xL, yT, lpfnLineProc, (LPSTR) &hDC) ;
-               LineDDA (xClient, 0,       xR, yT, lpfnLineProc, (LPSTR) &hDC) ;
-               LineDDA (xClient, yClient, xR, yB, lpfnLineProc, (LPSTR) &hDC) ;
-               LineDDA (0,       yClient, xL, yB, lpfnLineProc, (LPSTR) &hDC) ;
+               LineDDA (0,       0,       xL, yT, LineProc, (LPSTR) &hDC) ;
+               LineDDA (xClient, 0,       xR, yT, LineProc, (LPSTR) &hDC) ;
+               LineDDA (xClient, yClient, xR, yB, LineProc, (LPSTR) &hDC) ;
+               LineDDA (0,       yClient, xL, yB, LineProc, (LPSTR) &hDC) ;
 
                EndPaint (hWnd, &ps) ;
                break ;

@@ -136,7 +136,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      {
      static BOOL    bNeedSave = FALSE ;
      static char    szRealFileName [16] ;
-     static FARPROC lpfnAboutDlgProc ;
      static HWND    hInst, hWndEdit ;
      char           szFileName [16] ;
      LONG           lSelect ;
@@ -147,7 +146,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
           {
           case WM_CREATE:
                hInst = ((LPCREATESTRUCT) lParam)->hInstance ;
-               lpfnAboutDlgProc = MakeProcInstance (AboutDlgProc, hInst) ;
 
                hWndEdit = CreateWindow ("edit", NULL,
                          WS_CHILD | WS_VISIBLE | WS_HSCROLL | WS_VSCROLL |
@@ -287,7 +285,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
 
                     case IDM_ABOUT:
                          DialogBox (hInst, "AboutBox", hWnd,
-                                   lpfnAboutDlgProc) ;
+                                   AboutDlgProc) ;
                          break ;
 
                     case IDM_UNDO:

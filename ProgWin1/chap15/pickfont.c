@@ -242,7 +242,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HANDLE       hInstance ;
      HDC          hDC ;
      HFONT        hFont ;
-     FARPROC      lpfnDlgProc ;
      PAINTSTRUCT  ps ;
      RECT         rect ;
      
@@ -250,8 +249,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
           {
           case WM_CREATE :
                hInstance = ((LPCREATESTRUCT) lParam)->hInstance ;
-               lpfnDlgProc = MakeProcInstance (DlgProc, hInstance) ;
-               hDlg = CreateDialog (hInstance, szAppName, hWnd, lpfnDlgProc) ;
+               hDlg = CreateDialog (hInstance, szAppName, hWnd, DlgProc) ;
                break ;
 
           case WM_SETFOCUS:

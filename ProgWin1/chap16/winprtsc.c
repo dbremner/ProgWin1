@@ -11,7 +11,7 @@ int   PrintScreen () ;
 
 char    szAppName [] = "WinPrtSc" ;
 char    szSplMsg  [] = "WinPrtSc - Printing Screen" ;
-FARPROC lpfnKeyHook, lpfnOldHook ;
+FARPROC lpfnOldHook ;
 HANDLE  hInst ;
 HWND    hWnd ;
 
@@ -51,8 +51,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
           ShowWindow (hWnd, SW_SHOWMINNOACTIVE) ;
           UpdateWindow (hWnd) ;
 
-          lpfnKeyHook = MakeProcInstance ((FARPROC) KeyboardHook, hInstance) ;
-          lpfnOldHook = SetWindowsHook (WH_KEYBOARD, lpfnKeyHook) ;
+          lpfnOldHook = SetWindowsHook (WH_KEYBOARD, KeyboardHook) ;
           }
 
      if (nCmdShow != SW_SHOWMINNOACTIVE)
@@ -126,7 +125,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                break ;
 
           case WM_DESTROY :
-               UnhookWindowsHook (WH_KEYBOARD, lpfnKeyHook) ;
+               UnhookWindowsHook (WH_KEYBOARD, KeyboardHook) ;
                PostQuitMessage (0) ;
                break ;
 

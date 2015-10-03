@@ -62,7 +62,6 @@ BOOL PrintMyPage (hWnd)
      static char szText  [] = "Hello Printer!" ;
      BOOL        bError = FALSE ;
      DWORD       dwExtent ;
-     FARPROC     lpfnAbortProc, lpfnPrintDlgProc ;
      HDC         hPrnDC ;
      POINT       ptExtent ;
      RECT        rect ;
@@ -77,27 +76,25 @@ BOOL PrintMyPage (hWnd)
      EnableWindow (hWnd, FALSE) ;
 
      bUserAbort = FALSE ;
-     lpfnPrintDlgProc = MakeProcInstance (PrintDlgProc, hInst) ;
-     hDlgPrint = CreateDialog (hInst, "PrintDlgBox", hWnd, lpfnPrintDlgProc) ;
+     hDlgPrint = CreateDialog (hInst, "PrintDlgBox", hWnd, PrintDlgProc) ;
 
-     lpfnAbortProc = MakeProcInstance (AbortProc, hInst) ;
-     Escape (hPrnDC, SETABORTPROC, 0, (LPSTR) lpfnAbortProc, NULL) ;
+     Escape (hPrnDC, SETABORTPROC, 0, (LPSTR) AbortProc, NULL) ;
                                         
      if (Escape (hPrnDC, STARTDOC, sizeof szSpMsg - 1, szSpMsg, NULL) > 0 &&
          Escape (hPrnDC, NEXTBAND, 0, NULL, (LPSTR) &rect) > 0)
           {
           while (!IsRectEmpty (&rect) && !bUserAbort)
                {
-               (*lpfnAbortProc) (hPrnDC, 0) ;
+               AbortProc (hPrnDC, 0) ;
 
                Rectangle (hPrnDC, rect.left, rect.top, rect.right, 
                                                        rect.bottom) ;
-               (*lpfnAbortProc) (hPrnDC, 0) ;
+               AbortProc (hPrnDC, 0) ;
           
                MoveTo (hPrnDC, 0, 0) ;
                LineTo (hPrnDC, xPage, yPage) ;
 
-               (*lpfnAbortProc) (hPrnDC, 0) ;
+               AbortProc (hPrnDC, 0) ;
 
                MoveTo (hPrnDC, xPage, 0) ;
                LineTo (hPrnDC, 0, yPage) ;
@@ -109,11 +106,11 @@ BOOL PrintMyPage (hWnd)
                SetViewportExt (hPrnDC, xPage / 2, -yPage / 2) ;
                SetViewportOrg (hPrnDC, xPage / 2,  yPage / 2) ;
 
-               (*lpfnAbortProc) (hPrnDC, 0) ;
+               AbortProc (hPrnDC, 0) ;
 
                Ellipse (hPrnDC, -500, 500, 500, -500) ;
 
-               (*lpfnAbortProc) (hPrnDC, 0) ;
+               AbortProc (hPrnDC, 0) ;
 
                dwExtent = GetTextExtent (hPrnDC, szText, sizeof szText - 1) ;
                ptExtent = MAKEPOINT (dwExtent) ;
@@ -122,7 +119,7 @@ BOOL PrintMyPage (hWnd)
 
                RestoreDC (hPrnDC, -1) ;
 
-               (*lpfnAbortProc) (hPrnDC, 0) ;
+               AbortProc (hPrnDC, 0) ;
 
                if (Escape (hPrnDC, NEXTBAND, 0, NULL, (LPSTR) &rect) < 0)
                     {
@@ -148,8 +145,6 @@ BOOL PrintMyPage (hWnd)
           DestroyWindow (hDlgPrint) ;
           }
 
-     FreeProcInstance (lpfnPrintDlgProc) ;
-     FreeProcInstance (lpfnAbortProc) ;
      DeleteDC (hPrnDC) ;
 
      return bError || bUserAbort ;

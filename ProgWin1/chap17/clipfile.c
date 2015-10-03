@@ -28,7 +28,6 @@ typedef struct
 char szAppName []    = "ClipFile" ;
 char *szFileSpecs [] = { "*.TXT", "*.BMP", "*.WMF", "*.SYL", "*.DIF" } ;
 
-FARPROC        lpfnMFPInfo ;
 HANDLE         hInst ;
 LPMETAFILEPICT lpmfp ;
 
@@ -286,7 +285,7 @@ void LoadFile (hWnd, wFormat)
                lpmfp = (LPMETAFILEPICT) GlobalLock (hGMem) ;
                lpmfp->hMF = hMF ;
 
-               if (!DialogBox (hInst, "MFPInfo", hWnd, lpfnMFPInfo))
+               if (!DialogBox (hInst, "MFPInfo", hWnd, MFPInfoDlgProc))
                     {
                     GlobalUnlock (hGMem) ;
                     GlobalFree (hGMem) ;
@@ -533,7 +532,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      switch (iMessage)
           {
           case WM_CREATE:
-               lpfnMFPInfo = MakeProcInstance (MFPInfoDlgProc, hInst) ;
                hWndNextViewer = SetClipboardViewer (hWnd) ;
                break ;
 

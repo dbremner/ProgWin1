@@ -44,7 +44,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      UpdateWindow (hWnd);
 
      hDlgModeless = CreateDialog (hInstance, "ColorScrDlg", hWnd,
-                         MakeProcInstance (ColorScrDlg, hInstance)) ;
+                         ColorScrDlg) ;
 
      while (GetMessage (&msg, NULL, 0, 0))
           {

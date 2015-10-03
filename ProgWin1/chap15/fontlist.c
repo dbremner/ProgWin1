@@ -251,7 +251,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      {
      static BOOL    bHaveInfo = FALSE ;
      static ENUMER  enumer1, enumer2 ;
-     static FARPROC lpfnEnumAllFaces, lpfnEnumAllFonts ;
      static short   xChar, yChar, nCurrent ;
      static WORD    wCurrentDC = IDM_SCREEN ;
      HANDLE         hInstance ;
@@ -268,9 +267,6 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
           {
           case WM_CREATE:
                hInstance = ((LPCREATESTRUCT) lParam)-> hInstance ;
-               lpfnEnumAllFaces = MakeProcInstance (EnumAllFaces, hInstance) ;
-               lpfnEnumAllFonts = MakeProcInstance (EnumAllFonts, hInstance) ;
-
                hDC = GetDC (hWnd) ;
                GetTextMetrics (hDC, (LPTEXTMETRIC) &tm) ;
                xChar = tm.tmAveCharWidth ;
@@ -321,7 +317,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
 
                     if (hDC)
                          {
-                         if (0 == EnumFonts (hDC, NULL, lpfnEnumAllFaces,
+                         if (0 == EnumFonts (hDC, NULL, EnumAllFaces,
                                                   (LPSTR) &enumer1))
                               goto MEMORY_ERROR ;
 
@@ -330,7 +326,7 @@ long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
                          for (i = 0 ; i < enumer1.nCount ; i++)
                               if (0 == EnumFonts (hDC,
                                              lpFaces + i * LF_FACESIZE,
-                                             lpfnEnumAllFonts,
+                                             EnumAllFonts,
                                              (LPSTR) &enumer2))
                                    goto MEMORY_ERROR ;
 

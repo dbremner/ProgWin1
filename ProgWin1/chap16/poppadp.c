@@ -75,7 +75,6 @@ BOOL PrintFile (hInst, hWnd, hWndEdit, szFileName)
      {
      BOOL       bError = FALSE ;
      char       szMsg [40] ;
-     FARPROC    lpfnAbortProc, lpfnPrintDlgProc ;
      HDC        hPrnDC ;
      NPSTR      psBuffer ;
      RECT       rect ;
@@ -102,12 +101,10 @@ BOOL PrintFile (hInst, hWnd, hWndEdit, szFileName)
      EnableWindow (hWnd, FALSE) ;
 
      bUserAbort = FALSE ;
-     lpfnPrintDlgProc = MakeProcInstance (PrintDlgProc, hInst) ;
-     hDlgPrint = CreateDialog (hInst, "PrintDlgBox", hWnd, lpfnPrintDlgProc) ;
+     hDlgPrint = CreateDialog (hInst, "PrintDlgBox", hWnd, PrintDlgProc) ;
      SetDlgItemText (hDlgPrint, IDD_FNAME, szFileName) ;
 
-     lpfnAbortProc = MakeProcInstance (AbortProc, hInst) ;
-     Escape (hPrnDC, SETABORTPROC, 0, (LPSTR) lpfnAbortProc, NULL) ;
+     Escape (hPrnDC, SETABORTPROC, 0, (LPSTR) AbortProc, NULL) ;
 
      strcat (strcat (strcpy (szMsg, szAppName), " - "), szFileName) ;
                                         
@@ -154,8 +151,6 @@ BOOL PrintFile (hInst, hWnd, hWndEdit, szFileName)
           }
 
      LocalFree ((LOCALHANDLE) psBuffer) ;
-     FreeProcInstance (lpfnPrintDlgProc) ;
-     FreeProcInstance (lpfnAbortProc) ;
      DeleteDC (hPrnDC) ;
 
      return bError || bUserAbort ;

@@ -17,7 +17,6 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      {
      static char szAppName[] = "ColorScr" ;
      static char *szColorLabel[] = { "Red", "Green", "Blue" } ;
-     FARPROC     lpfnScrollProc ;
      HWND        hWnd ;
      MSG         msg;
      short       n ;
@@ -39,8 +38,6 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
 
      if (!RegisterClass (&wndclass))
           return FALSE;
-
-     lpfnScrollProc = MakeProcInstance ((FARPROC) ScrollProc, hInstance) ;
 
      hWnd = CreateWindow (szAppName, "Color Scroll",
                          WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN,
@@ -71,7 +68,7 @@ int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
                               hWnd, n + 6, hInstance, NULL) ; 
 
           lpfnOldScr[n] = (FARPROC) GetWindowLong (hChScrol[n], GWL_WNDPROC) ;
-          SetWindowLong (hChScrol[n], GWL_WNDPROC, (LONG) lpfnScrollProc) ;
+          SetWindowLong (hChScrol[n], GWL_WNDPROC, (LONG) ScrollProc) ;
 
           SetScrollRange (hChScrol[n], SB_CTL, 0, 255, FALSE) ;
           SetScrollPos   (hChScrol[n], SB_CTL, 0, FALSE) ;

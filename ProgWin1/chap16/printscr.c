@@ -72,7 +72,6 @@ BOOL CALLBACK AbortProc (hPrnDC, nCode)
 int PrintScreen ()
      {
      BOOL    bError = FALSE ;
-     FARPROC lpfnAbortProc, lpfnPrintDlgProc ;
      HBITMAP hBitmap ;
      HDC     hScrDC, hPrnDC, hMemDC ;
      int     nReturnCode = 0 ;
@@ -122,11 +121,9 @@ int PrintScreen ()
      EnableWindow (hWnd, FALSE) ;
 
      bUserAbort = FALSE ;
-     lpfnPrintDlgProc = MakeProcInstance (PrintDlgProc, hInst) ;
-     hDlgPrint = CreateDialog (hInst, "PrintDlgBox", hWnd, lpfnPrintDlgProc) ;
+     hDlgPrint = CreateDialog (hInst, "PrintDlgBox", hWnd, PrintDlgProc) ;
 
-     lpfnAbortProc = MakeProcInstance (AbortProc, hInst) ;
-     Escape (hPrnDC, SETABORTPROC, 0, (LPSTR) lpfnAbortProc, NULL) ;
+     Escape (hPrnDC, SETABORTPROC, 0, (LPSTR) AbortProc, NULL) ;
 
                     /*------------------------------------------------*/
                     /* Do StretchBlt (mem DC to prn DC) for each band */
@@ -181,8 +178,6 @@ int PrintScreen ()
           nReturnCode = 5 ;
 
      EnableWindow (hWnd, TRUE) ;
-     FreeProcInstance (lpfnPrintDlgProc) ;
-     FreeProcInstance (lpfnAbortProc) ;
      DeleteDC (hPrnDC) ;
      DeleteDC (hMemDC) ;
      DeleteObject (hBitmap) ;

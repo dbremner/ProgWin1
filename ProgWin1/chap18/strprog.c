@@ -140,7 +140,7 @@ BOOL CALLBACK GetStrCallBack (lpString, lpcbp)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd ;
      unsigned       iMessage ;
-     WORD  wParam ;
+     WPARAM wParam ;
      LPARAM lParam ;
      {
      static HANDLE  hInstance ;

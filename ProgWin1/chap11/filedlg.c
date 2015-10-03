@@ -58,7 +58,7 @@ int DoFileSaveDlg (hInst, hWnd, szFileSpecIn, szDefExtIn, pwStatusOut,
 BOOL CALLBACK FileOpenDlgProc (hDlg, iMessage, wParam, lParam)
      HWND      hDlg ;
      unsigned  iMessage ;
-     WORD  wParam ;
+     WPARAM wParam ;
      LPARAM lParam ;
      {
      char      cLastChar ;
@@ -176,7 +176,7 @@ BOOL CALLBACK FileOpenDlgProc (hDlg, iMessage, wParam, lParam)
 BOOL CALLBACK FileSaveDlgProc (hDlg, iMessage, wParam, lParam)
      HWND      hDlg ;
      unsigned  iMessage ;
-     WORD  wParam ;
+     WPARAM wParam ;
      LPARAM lParam ;
      {
      switch (iMessage)

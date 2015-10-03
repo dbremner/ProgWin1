@@ -239,7 +239,7 @@ void Justify (hDC, hResource, ptClient, nCurAlign)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND            hWnd ;
      unsigned        iMessage ;
-     WORD  wParam ;
+     WPARAM wParam ;
      LPARAM lParam ;
      {
      static ENUMFACE ef ;

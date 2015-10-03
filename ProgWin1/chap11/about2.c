@@ -165,7 +165,7 @@ BOOL CALLBACK AboutDlgProc (hDlg, iMessage, wParam, lParam)
 long CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd;
      unsigned       iMessage;
-     WORD  wParam;
+     WPARAM  wParam;
      LPARAM lParam;
      {
      static HWND    hInstance ;

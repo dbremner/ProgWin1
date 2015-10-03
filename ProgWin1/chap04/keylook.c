@@ -3,12 +3,12 @@
 #include <windows.h>
 #include <stdio.h>
 
-long  FAR PASCAL WndProc (HWND, unsigned, WORD, LONG) ;
+long  FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
 
 RECT  rect ;
 short xChar, yChar ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE  hInstance, hPrevInstance ;
      LPSTR   lpszCmdLine ;
      int     nCmdShow ;
@@ -80,7 +80,7 @@ void ShowKey (hWnd, iType, szMessage, wParam, lParam)
      ValidateRect (hWnd, NULL) ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
      WORD        wParam ;

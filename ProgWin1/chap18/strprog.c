@@ -22,16 +22,16 @@ typedef struct
      }
      CBPARM ;
 
-BOOL  FAR PASCAL AddString    (LPSTR) ;      /* functions in STRLIB */
-BOOL  FAR PASCAL DeleteString (LPSTR) ;
-short FAR PASCAL GetStrings   (FARPROC, CBPARM FAR *) ;
+BOOL  FAR CALLBACK AddString    (LPSTR) ;      /* functions in STRLIB */
+BOOL  FAR CALLBACK DeleteString (LPSTR) ;
+short FAR CALLBACK GetStrings   (FARPROC, CBPARM FAR *) ;
 
-long  FAR PASCAL WndProc (HWND, unsigned, WORD, LONG) ;
+long  FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
 
 char  szAppName [] = "StrProg" ;
 char  szString  [MAXLEN] ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE   hInstance, hPrevInstance ;
      LPSTR    lpszCmdLine ;
      int      nCmdShow ;
@@ -74,7 +74,7 @@ int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-BOOL FAR PASCAL DlgProc (hDlg, iMessage, wParam, lParam)
+BOOL FAR CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
      unsigned iMessage ;
      WORD     wParam ;
@@ -108,7 +108,7 @@ BOOL FAR PASCAL DlgProc (hDlg, iMessage, wParam, lParam)
      return TRUE ;
      }
 
-BOOL FAR PASCAL EnumCallBack (hWnd, lParam)
+BOOL FAR CALLBACK EnumCallBack (hWnd, lParam)
      HWND hWnd ;
      LONG lParam ;
      {
@@ -121,7 +121,7 @@ BOOL FAR PASCAL EnumCallBack (hWnd, lParam)
      return TRUE ;
      }
 
-BOOL FAR PASCAL GetStrCallBack (lpString, lpcbp)
+BOOL FAR CALLBACK GetStrCallBack (lpString, lpcbp)
      LPSTR       lpString ;
      CBPARM FAR *lpcbp ;
      {
@@ -137,7 +137,7 @@ BOOL FAR PASCAL GetStrCallBack (lpString, lpcbp)
      return TRUE ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd ;
      unsigned       iMessage ;
      WORD           wParam ;

@@ -12,7 +12,7 @@ char   szCaption [] = "Print Program 3 (Dialog Box)" ;
 BOOL   bUserAbort ;
 HWND   hDlgPrint ;
 
-BOOL FAR PASCAL PrintDlgProc (hDlg, iMessage, wParam, lParam)
+BOOL FAR CALLBACK PrintDlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
      unsigned iMessage ;
      WORD     wParam ;
@@ -39,7 +39,7 @@ BOOL FAR PASCAL PrintDlgProc (hDlg, iMessage, wParam, lParam)
      return TRUE ;
      }          
 
-BOOL FAR PASCAL AbortProc (hPrnDC, nCode)
+BOOL FAR CALLBACK AbortProc (hPrnDC, nCode)
      HDC   hPrnDC ;
      short nCode ;
      {

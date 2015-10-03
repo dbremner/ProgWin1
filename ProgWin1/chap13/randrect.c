@@ -3,12 +3,12 @@
 #include <windows.h>
 #include <stdlib.h>
 
-long FAR PASCAL WndProc (HWND, unsigned, WORD, LONG) ;
+long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
 void DrawRectangle (HWND) ;
 
 short xClient, yClient ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
      LPSTR       lpszCmdLine ;
      int         nCmdShow ;
@@ -86,7 +86,7 @@ void DrawRectangle (hWnd)
      DeleteObject (hBrush) ;
      }     
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
      unsigned iMessage ;
      WORD     wParam ;

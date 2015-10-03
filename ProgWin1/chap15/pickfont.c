@@ -3,8 +3,8 @@
 #include <windows.h>
 #include "pickfont.h"
 
-long FAR PASCAL WndProc (HWND, unsigned, WORD, LONG) ;
-BOOL FAR PASCAL DlgProc (HWND, unsigned, WORD, LONG) ;
+long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+BOOL FAR CALLBACK DlgProc (HWND, unsigned, WORD, LONG) ;
 
 char    szAppName [] = "PickFont" ;
 DWORD   dwAspectMatch = 0L ;
@@ -12,7 +12,7 @@ HWND    hDlg ;
 LOGFONT lf ;
 short   nMapMode = IDD_TEXT ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE   hInstance, hPrevInstance ;
      LPSTR    lpszCmdLine ;
      int      nCmdShow ;
@@ -136,7 +136,7 @@ void ShowMetrics (hDlg)
      SetDlgItemText (hDlg, TF_NAME, szFaceName) ;
      }
 
-BOOL FAR PASCAL DlgProc (hDlg, iMessage, wParam, lParam)
+BOOL FAR CALLBACK DlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
      unsigned iMessage ;
      WORD     wParam ;
@@ -230,7 +230,7 @@ BOOL FAR PASCAL DlgProc (hDlg, iMessage, wParam, lParam)
      return TRUE ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND         hWnd;
      unsigned     iMessage;
      WORD         wParam;

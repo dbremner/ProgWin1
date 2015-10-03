@@ -2,10 +2,10 @@
 
 #include <windows.h>
 
-long FAR PASCAL WndProc   (HWND, unsigned, WORD, LONG) ;
-void FAR PASCAL TimerProc (HWND, unsigned, WORD, LONG) ;
+long FAR CALLBACK WndProc   (HWND, unsigned, WORD, LONG) ;
+void FAR CALLBACK TimerProc (HWND, unsigned, WORD, LONG) ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
      LPSTR       lpszCmdLine ;
      int         nCmdShow ;
@@ -58,7 +58,7 @@ int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-void FAR PASCAL TimerProc (hWnd, iMessage, wParam, lParam)
+void FAR CALLBACK TimerProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
      unsigned iMessage ;
      WORD     wParam ;
@@ -67,7 +67,7 @@ void FAR PASCAL TimerProc (hWnd, iMessage, wParam, lParam)
      MessageBeep (0) ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
      unsigned iMessage ;
      WORD     wParam ;

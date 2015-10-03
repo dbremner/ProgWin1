@@ -2,12 +2,12 @@
 
 #include <windows.h>
 
-long FAR PASCAL WndProc (HWND, unsigned, WORD, LONG) ;
-void FAR PASCAL LineProc (short, short, LPSTR) ;
+long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+void FAR CALLBACK LineProc (short, short, LPSTR) ;
 
 HANDLE hInst ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
      LPSTR       lpszCmdLine ;
      int         nCmdShow ;
@@ -53,7 +53,7 @@ int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd ;
      unsigned       iMessage ;
      WORD           wParam ;
@@ -101,7 +101,7 @@ long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
      return 0L ;
      }
 
-void FAR PASCAL LineProc (x, y, lpData)
+void FAR CALLBACK LineProc (x, y, lpData)
      short        x, y ;
      LPSTR        lpData ;
      {

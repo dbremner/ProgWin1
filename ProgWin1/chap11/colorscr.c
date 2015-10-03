@@ -2,12 +2,12 @@
 
 #include <windows.h>
 
-long FAR PASCAL WndProc     (HWND, unsigned, WORD, LONG) ;
-BOOL FAR PASCAL ColorScrDlg (HWND, unsigned, WORD, LONG) ;
+long FAR CALLBACK WndProc     (HWND, unsigned, WORD, LONG) ;
+BOOL FAR CALLBACK ColorScrDlg (HWND, unsigned, WORD, LONG) ;
 
 HWND  hDlgModeless ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance;
      LPSTR       lpszCmdLine;
      int         nCmdShow;
@@ -57,7 +57,7 @@ int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-BOOL FAR PASCAL ColorScrDlg (hDlg, iMessage, wParam, lParam)
+BOOL FAR CALLBACK ColorScrDlg (hDlg, iMessage, wParam, lParam)
      HWND         hDlg ;
      unsigned     iMessage ;
      WORD         wParam ;
@@ -125,7 +125,7 @@ BOOL FAR PASCAL ColorScrDlg (hDlg, iMessage, wParam, lParam)
      return TRUE ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd;
      unsigned iMessage;
      WORD     wParam;

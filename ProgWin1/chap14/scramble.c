@@ -4,9 +4,9 @@
 #include <stdlib.h>
 #define   NUM  200 
 
-long FAR PASCAL WndProc (HWND, unsigned, WORD, LONG) ;
+long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE       hInstance, hPrevInstance ;
      LPSTR        lpszCmdLine ;
      int          nCmdShow ;

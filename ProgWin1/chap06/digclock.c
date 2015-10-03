@@ -12,13 +12,13 @@
 #define MIN   (datetime->tm_min)
 #define SEC   (datetime->tm_sec)
 
-long FAR PASCAL WndProc (HWND, unsigned, WORD, LONG);
+long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG);
 void SizeTheWindow (short *, short *, short *, short *) ;
 
 char  sDate [2], sTime [2], sAMPM [2][5] ;
 int   iDate, iTime ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance;
      LPSTR       lpszCmdLine;
      int         nCmdShow;
@@ -132,7 +132,7 @@ void WndPaint (hWnd, hDC)
      DrawText (hDC, cBuffer, -1, &rect, DT_CENTER | DT_NOCLIP) ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd;
      unsigned    iMessage;
      WORD        wParam;

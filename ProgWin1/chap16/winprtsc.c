@@ -5,8 +5,8 @@
 
 #define WM_PRTSC WM_USER 
 
-long  FAR PASCAL WndProc (HWND, unsigned, WORD, LONG) ;
-DWORD FAR PASCAL KeyboardHook (int, WORD, LONG) ;
+long  FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+DWORD FAR CALLBACK KeyboardHook (int, WORD, LONG) ;
 int   PrintScreen () ;
 
 char    szAppName [] = "WinPrtSc" ;
@@ -15,7 +15,7 @@ FARPROC lpfnKeyHook, lpfnOldHook ;
 HANDLE  hInst ;
 HWND    hWnd ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
      LPSTR       lpszCmdLine ;
      int         nCmdShow ;
@@ -69,7 +69,7 @@ int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-DWORD FAR PASCAL KeyboardHook (iCode, wParam, lParam)
+DWORD FAR CALLBACK KeyboardHook (iCode, wParam, lParam)
      int  iCode ;
      WORD wParam ;
      LONG lParam ;
@@ -87,7 +87,7 @@ DWORD FAR PASCAL KeyboardHook (iCode, wParam, lParam)
           return DefHookProc (iCode, wParam, lParam, &lpfnOldHook) ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
      WORD        wParam ;

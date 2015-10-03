@@ -4,13 +4,13 @@
 #include <string.h>
 #include "grafmenu.h"
 
-long FAR PASCAL WndProc  (HWND, unsigned, WORD, LONG) ;
+long FAR CALLBACK WndProc  (HWND, unsigned, WORD, LONG) ;
 HBITMAP StretchBitmap (HBITMAP) ;
 HBITMAP GetBitmapFont (int) ;
 
 char szAppName [] = "GrafMenu" ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE   hInstance, hPrevInstance ;
      LPSTR    lpszCmdLine ;
      int      nCmdShow ;
@@ -178,7 +178,7 @@ HBITMAP GetBitmapFont (i)
      return hBitmap ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND     hWnd ;
      unsigned iMessage ;
      WORD     wParam ;

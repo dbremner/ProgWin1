@@ -20,11 +20,11 @@ typedef struct {
      }
      ENUMSIZE ;
 
-long FAR PASCAL WndProc (HWND, unsigned, WORD, LONG) ;
-int  FAR PASCAL EnumAllFaces (LPLOGFONT, LPTEXTMETRIC, short, ENUMFACE FAR *) ;
-int  FAR PASCAL EnumAllSizes (LPLOGFONT, LPTEXTMETRIC, short, ENUMSIZE FAR *) ;
+long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+int  FAR CALLBACK EnumAllFaces (LPLOGFONT, LPTEXTMETRIC, short, ENUMFACE FAR *) ;
+int  FAR CALLBACK EnumAllSizes (LPLOGFONT, LPTEXTMETRIC, short, ENUMSIZE FAR *) ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE   hInstance, hPrevInstance ;
      LPSTR    lpszCmdLine ;
      int      nCmdShow ;
@@ -67,7 +67,7 @@ int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-int FAR PASCAL EnumAllFaces (lplf, lptm, nFontType, lpef)
+int FAR CALLBACK EnumAllFaces (lplf, lptm, nFontType, lpef)
      LPLOGFONT    lplf ;
      LPTEXTMETRIC lptm ;
      short        nFontType ;
@@ -82,7 +82,7 @@ int FAR PASCAL EnumAllFaces (lplf, lptm, nFontType, lpef)
      return 1 ;
      }
 
-int FAR PASCAL EnumAllSizes (lplf, lptm, nFontType, lpes)
+int FAR CALLBACK EnumAllSizes (lplf, lptm, nFontType, lpes)
      LPLOGFONT    lplf ;
      LPTEXTMETRIC lptm ;
      short        nFontType ;
@@ -236,7 +236,7 @@ void Justify (hDC, hResource, ptClient, nCurAlign)
      GlobalUnlock (hResource) ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND            hWnd ;
      unsigned        iMessage ;
      WORD            wParam ;

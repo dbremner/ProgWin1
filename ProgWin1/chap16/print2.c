@@ -9,7 +9,7 @@ HANDLE hInst ;
 char   szAppName [] = "Print2" ;
 char   szCaption [] = "Print Program 2 (Abort Function)" ;
 
-BOOL FAR PASCAL AbortProc (hPrnDC, nCode)
+BOOL FAR CALLBACK AbortProc (hPrnDC, nCode)
      HDC   hPrnDC ;
      short nCode ;
      {

@@ -10,7 +10,7 @@
 extern BOOL DoFileOpenDlg (HANDLE, HWND, PSTR, PSTR, WORD,   PSTR, POFSTRUCT) ;
 extern BOOL DoFileSaveDlg (HANDLE, HWND, PSTR, PSTR, WORD *, PSTR, POFSTRUCT) ;
 
-long FAR PASCAL WndProc (HWND, unsigned, WORD, LONG) ;
+long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
 
 typedef struct
      {
@@ -32,7 +32,7 @@ FARPROC        lpfnMFPInfo ;
 HANDLE         hInst ;
 LPMETAFILEPICT lpmfp ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE   hInstance, hPrevInstance ;
      LPSTR    lpszCmdLine ;
      int      nCmdShow ;
@@ -77,7 +77,7 @@ int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-BOOL FAR PASCAL MFPInfoDlgProc (hDlg, iMessage, wParam, lParam)
+BOOL FAR CALLBACK MFPInfoDlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
      unsigned iMessage ;
      WORD     wParam ;
@@ -518,7 +518,7 @@ void PaintWindow (hWnd, hDC, wFormat)
      SetWindowText (hWnd, szBuffer) ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
      WORD        wParam ;

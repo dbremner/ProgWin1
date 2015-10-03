@@ -17,13 +17,13 @@ typedef struct {
      TEXTMETRIC   tm ;
      } FONT ;
 
-long FAR PASCAL WndProc (HWND, unsigned, WORD, LONG) ;
-int  FAR PASCAL EnumAllFaces (LPLOGFONT, LPTEXTMETRIC, short, ENUMER FAR *) ;
-int  FAR PASCAL EnumAllFonts (LPLOGFONT, LPTEXTMETRIC, short, ENUMER FAR *) ;
+long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG) ;
+int  FAR CALLBACK EnumAllFaces (LPLOGFONT, LPTEXTMETRIC, short, ENUMER FAR *) ;
+int  FAR CALLBACK EnumAllFonts (LPLOGFONT, LPTEXTMETRIC, short, ENUMER FAR *) ;
 
 char szAppName [] = "FontList" ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE   hInstance, hPrevInstance ;
      LPSTR    lpszCmdLine ;
      int      nCmdShow ;
@@ -65,7 +65,7 @@ int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-int FAR PASCAL EnumAllFaces (lf, tm, nFontType, enumer)
+int FAR CALLBACK EnumAllFaces (lf, tm, nFontType, enumer)
      LPLOGFONT    lf ;
      LPTEXTMETRIC tm ;
      short        nFontType ;
@@ -85,7 +85,7 @@ int FAR PASCAL EnumAllFaces (lf, tm, nFontType, enumer)
      return 1 ;
      }
 
-int FAR PASCAL EnumAllFonts (lf, tm, nFontType, enumer)
+int FAR CALLBACK EnumAllFonts (lf, tm, nFontType, enumer)
      LPLOGFONT    lf ;
      LPTEXTMETRIC tm ;
      short        nFontType ;
@@ -243,7 +243,7 @@ HDC GetPrinterIC ()
      return NULL ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd ;
      unsigned       iMessage ;
      WORD           wParam ;

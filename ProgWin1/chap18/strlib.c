@@ -6,7 +6,7 @@
 HANDLE hStrings [256] ;
 short  nTotal = 0 ;
 
-int PASCAL LibMain (hInstance, wDataSeg, wHeapSize, lpCmdLine)
+int CALLBACK LibMain (hInstance, wDataSeg, wHeapSize, lpCmdLine)
      HANDLE hInstance ;
      WORD   wDataSeg, wHeapSize ;
      LPSTR  lpCmdLine ;
@@ -17,7 +17,7 @@ int PASCAL LibMain (hInstance, wDataSeg, wHeapSize, lpCmdLine)
      return LocalInit (wDataSeg, NULL, (NPSTR) wHeapSize) ;
      }
 
-BOOL FAR PASCAL AddString (lpStringIn)
+BOOL FAR CALLBACK AddString (lpStringIn)
      LPSTR  lpStringIn ;
      {
      HANDLE hString ;
@@ -59,7 +59,7 @@ BOOL FAR PASCAL AddString (lpStringIn)
      return TRUE ;
      }
 
-BOOL FAR PASCAL DeleteString (lpStringIn)
+BOOL FAR CALLBACK DeleteString (lpStringIn)
      LPSTR lpStringIn ;
      {
      NPSTR npString ;
@@ -88,7 +88,7 @@ BOOL FAR PASCAL DeleteString (lpStringIn)
      return TRUE ;
      }     
 
-short FAR PASCAL GetStrings (lpfnGetStrCallBack, lpParam)
+short FAR CALLBACK GetStrings (lpfnGetStrCallBack, lpParam)
      FARPROC lpfnGetStrCallBack ;
      LPSTR   lpParam ;
      {

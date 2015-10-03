@@ -7,7 +7,7 @@
 #include "poppad.h"
 #define  EDITID 1
 
-long FAR PASCAL WndProc (HWND, unsigned, WORD, LONG);
+long FAR CALLBACK WndProc (HWND, unsigned, WORD, LONG);
 
 BOOL ReadFile  (HANDLE, HWND, HWND, POFSTRUCT, char *, BOOL) ;
 BOOL WriteFile (HANDLE, HWND, HWND, POFSTRUCT, char *, BOOL) ;
@@ -17,7 +17,7 @@ char szAppName  [] = "PopPad" ;
 char szFileSpec [] = "*.TXT"  ;
 char szUntitled [] = "(untitled)" ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE   hInstance, hPrevInstance;
      LPSTR    lpszCmdLine;
      int      nCmdShow;
@@ -68,7 +68,7 @@ int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-BOOL FAR PASCAL AboutDlgProc (hDlg, iMessage, wParam, lParam)
+BOOL FAR CALLBACK AboutDlgProc (hDlg, iMessage, wParam, lParam)
      HWND     hDlg ;
      unsigned iMessage ;
      WORD     wParam ;
@@ -128,7 +128,7 @@ short AskAboutSave (hWnd, szFileName)
      return nReturn ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND           hWnd;
      unsigned       iMessage;
      WORD           wParam;

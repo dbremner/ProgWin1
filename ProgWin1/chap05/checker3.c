@@ -4,12 +4,12 @@
 
 #define DIVISIONS 5
 
-long FAR PASCAL WndProc      (HWND, unsigned, WORD, LONG) ;
-long FAR PASCAL ChildWndProc (HWND, unsigned, WORD, LONG) ;
+long FAR CALLBACK WndProc      (HWND, unsigned, WORD, LONG) ;
+long FAR CALLBACK ChildWndProc (HWND, unsigned, WORD, LONG) ;
 
 char szChildClass [] = "Checker3_Child" ;
 
-int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
+int CALLBACK WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      HANDLE      hInstance, hPrevInstance ;
      LPSTR       lpszCmdLine ;
      int         nCmdShow ;
@@ -61,7 +61,7 @@ int PASCAL WinMain (hInstance, hPrevInstance, lpszCmdLine, nCmdShow)
      return msg.wParam ;
      }
 
-long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK WndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
      WORD        wParam ;
@@ -108,7 +108,7 @@ long FAR PASCAL WndProc (hWnd, iMessage, wParam, lParam)
      return 0L ;
      }
 
-long FAR PASCAL ChildWndProc (hWnd, iMessage, wParam, lParam)
+long FAR CALLBACK ChildWndProc (hWnd, iMessage, wParam, lParam)
      HWND        hWnd ;
      unsigned    iMessage ;
      WORD        wParam ;
